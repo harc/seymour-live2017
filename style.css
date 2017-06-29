@@ -18,3 +18,7 @@ h2, h3 {
   font-style:  normal;
   font-weight: 500;
 }
+
+pre.code {
+  font-family: Consolas, Monaco, Courier, monospace;
+}
