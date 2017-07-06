@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i|Vollkorn:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i|Vollkorn:400,400i,700,700i|Spectral:400,400i,500,500i,600,600i,700,700i');
 
 body {
   font-family: 'Vollkorn', serif;
@@ -21,4 +21,20 @@ h2, h3 {
 
 pre.code {
   font-family: Consolas, Monaco, Courier, monospace;
+}
+
+.sidenote-number:after, .sidenote:before {
+    font-family: 'Vollkorn', serif;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  a:link {
+    background-position-y: 87%, 87%, 85%;
+  }
+}
+
+@media (max-width: 760px) {
+  .sidenote, .marginnote {
+      top: 0 !important;
+  }
 }
