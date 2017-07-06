@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i|Vollkorn:400,400i,700,700i|Spectral:400,400i,500,500i,600,600i,700,700i');
 
+html { font-size: 13px; }
+
 body {
-  font-family: 'Vollkorn', serif;
+  /*font-family: 'Vollkorn', serif;*/
   background-color: hsl(0, 0%, 100%);
 }
 
@@ -24,7 +26,7 @@ pre.code {
 }
 
 .sidenote-number:after, .sidenote:before {
-    font-family: 'Vollkorn', serif;
+    /*font-family: 'Vollkorn', serif;*/
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
