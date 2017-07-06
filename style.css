@@ -29,11 +29,11 @@ pre.code {
     /*font-family: 'Vollkorn', serif;*/
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+/*@media screen and (-webkit-min-device-pixel-ratio: 0) {
   a:link {
     background-position-y: 87%, 87%, 85%;
   }
-}
+}*/
 
 @media (max-width: 760px) {
   .sidenote, .marginnote {
