@@ -4,12 +4,22 @@ html { font-size: 13px; }
 
 body {
   /*font-family: 'Vollkorn', serif;*/
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(60,35%,99%);
+}
+
+#abstract > blockquote {
+  width: 45%;
+  font-size: 1.2rem;
+  line-height: 1.7rem;
 }
 
 h1, h2, h3, h4, h5,
 p.subtitle {
   font-family: 'Fira Sans', sans-serif;
+}
+
+p.subtitle {
+  line-height: 1.3;
 }
 
 h1 {
@@ -39,4 +49,22 @@ pre.code {
   .sidenote, .marginnote {
       top: 0 !important;
   }
+}
+
+/* seymour env styling */
+
+figure[id^="env"] {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 3px;
+}
+
+figure[id^="env"] .CodeMirror {
+  font-family: inherit;
+  min-width: 50%;
+}
+
+div[id^="microVizContainer"] {
+  font-family: "Fira Mono";
+  font-feature-settings: "liga" 0;
+  padding: 0px;
 }

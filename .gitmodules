@@ -1,0 +1,3 @@
+[submodule "seymour-interpreter"]
+	path = seymour-interpreter
+	url = git@gitlab.com:cdg/seymour-interpreter.git

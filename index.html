@@ -16,19 +16,65 @@
       HARC/Y Combinator Research</p>
 
       <section id="abstract">
-        <p>abstract goes here</p>
+        <blockquote><b>abstract goes here.</b> This project involves discovering how the American Revolution was remembered during the nineteenth century.  The goal is to show that the American Revolution was memorialized by the actions of the United States government during the 1800s. This has been done by examining events such as the Supreme Court cases of John Marshall and the Nullification Crisis. Upon examination of these events, it becomes clear that John Marshall and John Calhoun (creator of the Doctrine of Nullification) attempted to use the American Revolution to bolster their claims by citing speeches from Founding Fathers. Through showing that the American Revolution lives on in memory, this research highlights the importance of the revolution in shaping the actions of the United States government.</blockquote>
       </section>
       <section>
         <h2>Introduction</h2>
       </section>
       <section>
-        <h2>A - relate the experience of live-editing with Seymour</h2>
+        <h2>Related Work</h2>
       </section>
       <section>
-        <h2>B - high level technical discussion of macro/micro viz + how they interact with the language</h2>
+        <h2>The Programming Environment</h2>
+        <h3>The Language</h3>
+        <h3>The Interface</h3>
+        <h3>The Detail Visualization</h3>
+        <p>The detail visualization (a generalization of a visualization from <span class="iop">Bret Victor’s “Inventing on Principle”<label for="iop" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="iop" class="margin-toggle"><span class="sidenote"><a href="https://vimeo.com/36579366" target="_blank">Bret Victor - <em>Inventing on Principle</em></a></span>) arranges the effects of variable assignments and message sends to tell the story of what happened in an activation.</p>
+
+        <p>Effects are shown next to the line of code where they happened. A variable’s current value is only shown when it is assigned.</p>
+
+         <figure id="env1"><div id="microVizContainer1"></div></figure> 
+
+        <p>Loops are shown using multiple columns. The user can read through a single row to see how a particular statement changes over time, or they can read through a column to see what happened in a particular iteration.</p>
+
+        <figure id="env2"><div id="microVizContainer2"></div></figure> 
+
+        <p>Because we do not show effects next to code that is not run, the user can <span class="learnable">‘follow the flow’<label for="learnable" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="learnable" class="margin-toggle"><span class="sidenote"><a href="http://worrydream.com/LearnableProgramming/" target="_blank">Bret Victor - <em>Learnable Programming</em></a></span> of the program with ease. The vertical position of an effect indicates which portion of the code was executed. For example, in the visualization of fizzbuzz below, we can easily identify how the program behaves when x is a multiple of 3, 5, both, or neither.</p>
+
+        <figure id="env3">
+          <label for="mn-dots-explanation" class="margin-toggle">⊕</label><input type="checkbox" id="mn-dots-explanation" class="margin-toggle"><span class="marginnote">Blue dots indicate message sends that produce a result without side effects.</span>
+          <div id="microVizContainer3"></div>
+        </figure> 
+
+        <p>
+          To help the user understand what happens during a message send, we summarize its side effects. The summary shows the state of all relevant variables when the message send completes. We hide state that is local to the message send, as it does not contribute to the current scope’s story.
+        </p>
+
+        <figure id="env4">
+          <div id="microVizContainer4"></div>
+        </figure>
+
+        <p>
+          To look at details of a message send, we ‘focus’ the visualization on its scope. Scopes are visualized along with the lexical scopes in which they were created. In this way, we can see all events that could potentially affect the result of the message send in question.
+        </p>
+
+        <figure id="env5">
+          <div id="microVizContainer5"></div>
+        </figure>
+
+        <p>
+          Using line placement, control flow visualization, side effect summaries, and nested scopes, the detail view creates a cohesive story about what occurred in an activation. Wherever possible, we sought to accurately reflect the semantics of the underlying language. Often, this came at the cost of a concise visualization. We discuss techniques to further simplify the visualization in the future work section.
+        </p>
+        <h3>The Overview Visualization</h3>
       </section>
       <section>
-        <h2>C</h2>
+        <h2>Live Programming with Seymour</h2>
+        <h3>Web Workers</h3>
+        <h3>A Steppable Interpreter</h3>
+        <h3>Generating the Detail View</h3>
+      </section>
+      <section>
+        <h2>Implementation</h2>
       </section>
       <section>
         <h2>Ongoing and Future Work</h2>
@@ -177,5 +223,59 @@
         <p>Many thanks go to Edward Tufte for leading the way with his work. It is only through his kind and careful editing that this project accomplishes what it does. All errors of implementation are of course mine.</p>
       </section>
     </article>
+
+    <!-- 3rd-party stuff -->
+    <script src="seymour-interpreter/3rdparty/ohm.min.js"></script>
+    <script src="seymour-interpreter/3rdparty/jquery-3.2.1.min.js"></script>
+    <script src="seymour-interpreter/3rdparty/codemirror.js"></script>
+    <script src="seymour-interpreter/3rdparty/checked-emitter.js"></script>
+    <script src="seymour-interpreter/3rdparty/underscore.js"></script>
+    <link rel="stylesheet" href="seymour-interpreter/3rdparty/codemirror.css">
+
+    <!-- Language ----------------------------------->
+
+    <!-- the interpreter -->
+    <script src="seymour-interpreter/lang/activations.js"></script>
+    <script src="seymour-interpreter/lang/asts.js"></script>
+    <script src="seymour-interpreter/lang/builtins.js"></script>
+    <script src="seymour-interpreter/lang/instructions.js"></script>
+    <script src="seymour-interpreter/lang/Interpreter.js"></script>
+    <script src="seymour-interpreter/lang/Method.js"></script>
+    <script src="seymour-interpreter/lang/Obj.js"></script>
+    <script src="seymour-interpreter/lang/BlockClosure.js"></script>
+    <script src="seymour-interpreter/lang/Class.js"></script>
+    <script src="seymour-interpreter/lang/SourceLoc.js"></script>
+
+    <!-- syntax stuff -->
+    <script src="seymour-interpreter/lang/grammar.js"></script>
+    <script src="seymour-interpreter/lang/parse.js"></script>
+    <script src="seymour-interpreter/lang/syntaxHighlight.js"></script>
+    <link rel="stylesheet" href="seymour-interpreter/syntaxHighlight.css">
+
+    <!-- prelude -->
+    <script src="seymour-interpreter/lang/prelude.js"></script>
+
+    <!-- Visualizations---------------------------->
+
+    <script src="seymour-interpreter/viz/Env.js"></script>
+    <script src="seymour-interpreter/viz/EventRecorder.js"></script>
+    <script src="seymour-interpreter/viz/MicroVizEvents.js"></script>
+    <script src="seymour-interpreter/viz/macroViz.js"></script>
+    <script src="seymour-interpreter/viz/microViz.js"></script>
+    <script src="seymour-interpreter/viz/events.js"></script>
+    <link rel="stylesheet" href="seymour-interpreter/viz/microViz.css">
+    <link rel="stylesheet" href="seymour-interpreter/viz/macroViz.css">
+
+    <!-- pulling it all together -->
+
+    <link rel="stylesheet" href="seymour-interpreter/seymour.css"> 
+    <link rel="stylesheet" href="seymour-interpreter/highlighting.css">
+
+    <script src="seymour-interpreter/lib.js"></script>
+    <!-- <script src="seymour-interpreter/setup.js"></script> -->
+    <script src="seymour-interpreter/highlighting.js"></script>
+    <script src="seymour-interpreter/pathmatcher.js"></script>
+    <script src="seymour-interpreter/seymour.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
