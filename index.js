@@ -1,4 +1,4 @@
-const S1 = new Seymour(microVizContainer1, null, true, false);
+const S1 = new Seymour(microVizContainer1, null, true, true);
 
 S1.editor.setValue(`var x = 2;
 var y = 4;
@@ -10,7 +10,7 @@ S1.addListener('codeChanged', _ => clearError(1));
 S1.addListener('error', e => displayError(1, e.toString()));
 
 
-const S2 = new Seymour(microVizContainer2, null, true, false);
+const S2 = new Seymour(microVizContainer2, null, true, true);
 
   S2.editor.setValue(`var sum = 0;
 for 1 to: 3 do: {x |
@@ -21,7 +21,7 @@ S2.addListener('codeChanged', _ => clearError(2));
 S2.addListener('error', e => displayError(2, e.toString()));
 
 
-const S3 = new Seymour(microVizContainer3, null, true, false);
+const S3 = new Seymour(microVizContainer3, null, true, true);
 
   S3.editor.setValue(`for 1 to: 15 do: {x |
   var ans = "";
@@ -43,7 +43,7 @@ S3.addListener('codeChanged', _ => clearError(3));
 S3.addListener('error', e => displayError(3, e.toString()));
 
 
-const S4 = new Seymour(microVizContainer4, null, true, false);
+const S4 = new Seymour(microVizContainer4, null, true, true);
 
   S4.editor.setValue(`var b = 0;
 def Number.f() {
@@ -58,7 +58,7 @@ S4.addListener('codeChanged', _ => clearError(4));
 S4.addListener('error', e => displayError(4, e.toString()));
 
 
-const S5 = new Seymour(microVizContainer5, null, true, false);
+const S5 = new Seymour(microVizContainer5, null, true, true);
 
   S5.editor.setValue(`def Number.add() {
   return {y |
