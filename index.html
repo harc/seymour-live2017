@@ -33,17 +33,24 @@
 
         <p>Effects are shown next to the line of code where they happened. A variable’s current value is only shown when it is assigned.</p>
 
-         <figure id="env1"><div id="microVizContainer1"></div></figure> 
+        <figure id="env1">
+          <div id="microVizContainer1"></div>
+          <div id="errorDiv1"></div>
+        </figure> 
 
         <p>Loops are shown using multiple columns. The user can read through a single row to see how a particular statement changes over time, or they can read through a column to see what happened in a particular iteration.</p>
 
-        <figure id="env2"><div id="microVizContainer2"></div></figure> 
+        <figure id="env2">
+          <div id="microVizContainer2"></div>
+          <div id="errorDiv2"></div>
+        </figure> 
 
         <p>Because we do not show effects next to code that is not run, the user can <span class="learnable">‘follow the flow’<label for="learnable" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="learnable" class="margin-toggle"><span class="sidenote"><a href="http://worrydream.com/LearnableProgramming/" target="_blank">Bret Victor - <em>Learnable Programming</em></a></span> of the program with ease. The vertical position of an effect indicates which portion of the code was executed. For example, in the visualization of fizzbuzz below, we can easily identify how the program behaves when x is a multiple of 3, 5, both, or neither.</p>
 
         <figure id="env3">
           <label for="mn-dots-explanation" class="margin-toggle">⊕</label><input type="checkbox" id="mn-dots-explanation" class="margin-toggle"><span class="marginnote">Blue dots indicate message sends that produce a result without side effects.</span>
           <div id="microVizContainer3"></div>
+          <div id="errorDiv3"></div>
         </figure> 
 
         <p>
@@ -52,6 +59,7 @@
 
         <figure id="env4">
           <div id="microVizContainer4"></div>
+          <div id="errorDiv4"></div>
         </figure>
 
         <p>
@@ -60,6 +68,7 @@
 
         <figure id="env5">
           <div id="microVizContainer5"></div>
+          <div id="errorDiv5"></div>
         </figure>
 
         <p>

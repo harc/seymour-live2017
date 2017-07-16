@@ -70,3 +70,17 @@ div[id^="microVizContainer"] {
   font-feature-settings: "liga" 0;
   padding: 0px;
 }
+
+div[id^="errorDiv"] {
+  font-family: "Fira Sans";
+  color: hsl(0, 50%, 70%);
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  background: hsl(0, 0%, 95%);
+  cursor: row-resize;
+}
+
+div[id^="errorDiv"]:empty {
+  padding: 0px;
+  border: 0px;
+}

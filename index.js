@@ -6,6 +6,9 @@ var y = 4;
 x = 3;
 y = 1;`);
 
+S1.addListener('codeChanged', _ => clearError(1));
+S1.addListener('error', e => displayError(1, e.toString()));
+
 
 const S2 = new Seymour(microVizContainer2, null, true, false);
 
@@ -13,6 +16,9 @@ const S2 = new Seymour(microVizContainer2, null, true, false);
 for 1 to: 3 do: {x |
   sum = sum + x;
 };`);
+
+S2.addListener('codeChanged', _ => clearError(2));
+S2.addListener('error', e => displayError(2, e.toString()));
 
 
 const S3 = new Seymour(microVizContainer3, null, true, false);
@@ -33,6 +39,9 @@ const S3 = new Seymour(microVizContainer3, null, true, false);
   ans.show();
 };`);
 
+S3.addListener('codeChanged', _ => clearError(3));
+S3.addListener('error', e => displayError(3, e.toString()));
+
 
 const S4 = new Seymour(microVizContainer4, null, true, false);
 
@@ -44,6 +53,9 @@ def Number.f() {
 }
 
 5.f();`);
+
+S4.addListener('codeChanged', _ => clearError(4));
+S4.addListener('error', e => displayError(4, e.toString()));
 
 
 const S5 = new Seymour(microVizContainer5, null, true, false);
@@ -57,6 +69,9 @@ const S5 = new Seymour(microVizContainer5, null, true, false);
 var add5 = 5.add();
 var ans = add5(6);`);
 
+S5.addListener('codeChanged', _ => clearError(5));
+S5.addListener('error', e => displayError(5, e.toString()));
+
 let setFocus = true;
 S5.addListener('done', (_, __) => {
   if (setFocus) {
@@ -66,3 +81,15 @@ S5.addListener('done', (_, __) => {
     setFocus = false;
   }
 });
+
+
+function clearError(n) {
+  const errorDiv = document.getElementById('errorDiv' + n);
+  errorDiv.innerHTML = '';
+}
+
+function displayError(n, message) {
+  const errorDiv = document.getElementById('errorDiv' + n);
+  errorDiv.innerHTML = '';
+  errorDiv.innerText = message;
+}
