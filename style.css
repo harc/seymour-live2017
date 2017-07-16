@@ -3,8 +3,10 @@
 html { font-size: 13px; }
 
 body {
-  /*font-family: 'Vollkorn', serif;*/
+   font-family: 'Vollkorn', serif; 
   background-color: hsl(60,35%,99%);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
 }
 
 #abstract > blockquote {
@@ -36,14 +38,14 @@ pre.code {
 }
 
 .sidenote-number:after, .sidenote:before {
-    /*font-family: 'Vollkorn', serif;*/
+    font-family: 'Vollkorn', serif;
 }
 
-/*@media screen and (-webkit-min-device-pixel-ratio: 0) {
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
   a:link {
     background-position-y: 87%, 87%, 85%;
   }
-}*/
+}
 
 @media (max-width: 760px) {
   .sidenote, .marginnote {
