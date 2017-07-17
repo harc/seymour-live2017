@@ -34,6 +34,7 @@
         <p>Effects are shown next to the line of code where they happened. A variable’s current value is only shown when it is assigned.</p>
 
         <figure id="env1">
+          <label for="mn-change-code" class="margin-toggle">⊕</label><input type="checkbox" id="mn-change-code" class="margin-toggle"><span class="marginnote">← the detail visualization updates when the code is edited</span>
           <div id="microVizContainer1"></div>
           <div id="errorDiv1"></div>
         </figure> 
@@ -41,6 +42,7 @@
         <p>Loops are shown using multiple columns. The user can read through a single row to see how a particular statement changes over time, or they can read through a column to see what happened in a particular iteration.</p>
 
         <figure id="env2">
+          <label for="mn-hover" class="margin-toggle">⊕</label><input type="checkbox" id="mn-hover" class="margin-toggle"><span class="marginnote">← hovering over message sends (e.g. the loop, blue dots) highlights the code that produced them and shows their return value</span>
           <div id="microVizContainer2"></div>
           <div id="errorDiv2"></div>
         </figure> 
@@ -74,7 +76,30 @@
         <p>
           Using line placement, control flow visualization, side effect summaries, and nested scopes, the detail view creates a cohesive story about what occurred in an activation. Wherever possible, we sought to accurately reflect the semantics of the underlying language. Often, this came at the cost of a concise visualization. We discuss techniques to further simplify the visualization in the future work section.
         </p>
+
         <h3>The Overview Visualization</h3>
+
+        <p></p>
+
+        <figure id="env6">
+          <div id="microVizContainer6"></div>
+          <div id="errorDiv6"></div>
+          <div id="macroVizScroller6">
+            <div id="macroVizContainer6"></div>
+          </div>
+        </figure>
+
+        <p>
+        The overview visualization shows the ‘big picture’ of the computation. It displays the structure of the program’s message sends while hiding the particular details of what occurred in each send. Because it shows information about the whole program, it is a useful complement to the detail view, helping the user relate the story of a particular scope to the larger program execution. It also serves as a UI element with which the user can select a scope to ‘focus’ on in the detail view.
+        </p>
+
+        <p>
+        This visualization is inspired by <span>icicle plots<label for="icicle" class="margin-toggle sidenote-number"></label></span></span><input type="checkbox" id="learnable" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.2307/2685881" target="_blank">Kruskal and Landwehr - <em>Icicle Plots</em></a></span> and <span>flame graphs<label for="flame" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="learnable" class="margin-toggle"><span class="sidenote"><a href="http://www.brendangregg.com/flamegraphs.html" target="_blank">Brendan Gregg - <em>Flame Graphs</em></a></span>, which are commonly used in program profilers. Each message send is drawn as a rectangular node on screen, and the caller-callee relationships between sends are shown using the tree structure of the visualization. All calls that are made in a particular message send are drawn below its node in the visualization. Sends that do not make any calls have fixed width, and all other sends are wide enough to contain all their children. 
+        </p>
+
+        <p>
+        The visualization’s regular structure allows the user to see the ‘shape’ of the computation. Wider nodes contain more sends, and generally make up more of the program execution, while deeper subtrees indicate greater stack depth. Similar call patterns are drawn as similar shapes on screen, and can be used as landmarks in the larger visualization. For example, in the figure above, the repeated shape of the call to ‘Number.fact()’ tells the user that there is some repeated computation going on, and the change in depth of each call indicates how the computation changes with each loop.
+        </p>
       </section>
       <section>
         <h2>Live Programming with Seymour</h2>

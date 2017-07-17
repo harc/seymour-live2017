@@ -84,3 +84,19 @@ div[id^="errorDiv"]:empty {
   padding: 0px;
   border: 0px;
 }
+
+#env6 .CodeMirror {
+  min-width: 100%;
+}
+#errorDiv6:empty {
+  padding: 2px;
+  border: 1px solid #ddd;
+}
+
+div[id^=macroVizScroller] {
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 100%;
+  max-height: 50%;
+  height: 50%;
+}

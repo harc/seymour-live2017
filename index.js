@@ -83,6 +83,20 @@ S5.addListener('done', (_, __) => {
 });
 
 
+const S6 = new Seymour(microVizContainer6, macroVizContainer6, false, true);
+
+  S6.editor.setValue(`def Number.fact() {
+  if this == 0 then: {
+    return 1;
+  } else: {
+    return this * (this-1).fact();
+  };
+}
+
+for 1 to: 10 do: {x |
+  x.fact();
+};`);
+
 function clearError(n) {
   const errorDiv = document.getElementById('errorDiv' + n);
   errorDiv.innerHTML = '';
