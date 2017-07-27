@@ -7,6 +7,7 @@ body {
   background-color: hsl(60,35%,99%);
   font-kerning: normal;
   text-rendering: optimizeLegibility;
+  counter-reset: sidenote-counter section-counter;
 }
 
 #abstract > blockquote {
@@ -43,7 +44,7 @@ pre.code {
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   a:link {
-    background-position-y: 87%, 87%, 85%;
+    background-position-y: 87%, 87%, 77%;/*85%;*/
   }
 }
 
@@ -86,7 +87,7 @@ div[id^="errorDiv"]:empty {
 }
 
 #env6 .CodeMirror {
-  min-width: 100%;
+  /* min-width: 100%; */
 }
 #errorDiv6:empty {
   padding: 2px;
@@ -99,4 +100,39 @@ div[id^=macroVizScroller] {
   width: 100%;
   max-height: 50%;
   height: 50%;
+}
+
+#references li {
+  padding-left: 2em;
+  text-indent: -2em;
+}
+
+#references ol {
+   width: 70%; 
+}
+
+img.light-bg-protect, video.light-bg-protect {
+    border: 1px solid #ccc;
+}
+
+img.light-bg-protect {
+  border-radius: 4px;
+}
+
+img.block, video.block {
+    display: block;
+}
+
+li {
+  padding: 0.2rem 0;
+}
+
+span.sectionNumber::before {
+  color: hsl(0, 0%, 70%);
+  counter-increment: section-counter;
+  content: counter(section-counter) " ";
+}
+
+.timestamp::before {
+  content: attr(start) " - " attr(end);
 }
