@@ -117,7 +117,7 @@
 //   errorDiv.innerText = message;
 // }
 
-let currentEndTime = 0;
+let currentEndTime = null;
 
 const  timestamps = Array.from(document.querySelectorAll('a.timestamp'));
 timestamps.forEach(timestamp => {
@@ -127,13 +127,25 @@ timestamps.forEach(timestamp => {
   timestamp.addEventListener('click', e => {
     video.currentTime = startSeconds;
     currentEndTime = endSeconds;
-    let listener = () => {
-      if(video.currentTime >= currentEndTime) {
+    
+    const timeListener = () => {
+      if(currentEndTime !== null && video.currentTime >= currentEndTime) {
         video.pause();
-        video.removeEventListener(listener);
+        video.removeEventListener('timeupdate', timeListener);
       } 
     };
-    video.addEventListener("timeupdate", listener);
+
+    let count = 0;
+    const seekListener = () => {
+      if (count > 0) {
+        console.log('seeking');
+        currentEndTime = null;
+        video.removeEventListener('seeking', seekListener);
+      }
+      count++;
+    }
+    video.addEventListener('timeupdate', timeListener);
+    video.addEventListener('seeking', seekListener);
     if (video.paused && !video.ended) {
       video.play();
     }
