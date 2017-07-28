@@ -34,8 +34,10 @@ h2, h3 {
   font-weight: 500;
 }
 
-pre.code {
-  font-family: Consolas, Monaco, Courier, monospace;
+code, pre.code {
+  font-family: "Fira Mono", Consolas, Monaco, Courier, monospace;
+  font-feature-settings: "liga" 0;
+  font-size: 1.1rem;
 }
 
 .sidenote-number:after, .sidenote:before {
