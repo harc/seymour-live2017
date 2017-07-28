@@ -195,13 +195,13 @@
         </figure>
 
         <p>
-        The visualization is a variation on the <span>icicle plot<label for="icicle" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="icicle" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.2307/2685881" target="_blank">Kruskal and Landwehr. <em>Icicle Plots</em></a></span>—a method for visualizing hierarchical data that makes it easy to see the ‘shape’ of a computation. Each method call is drawn as a rectangular node on screen. Time progresses from left to right, with clusters of calls acting as landmarks on the program’s timeline. All calls that a method makes are drawn below its node in the visualization. Calls that do not make any further calls (leaf calls) have fixed width, and all other sends are wide enough to contain all their children; calls with more subcalls are wider than those with fewer subcalls.
+        The visualization is a variation on the <span>icicle plot<label for="icicle" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="icicle" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.2307/2685881" target="_blank">Kruskal and Landwehr. &ldquo;Icicle Plots: Better Displays for Hierarchical Clustering&rdquo;</a></span>—a method for visualizing hierarchical data that makes it easy to see the ‘shape’ of a computation. Each method call is drawn as a rectangular node on screen. Time progresses from left to right, with clusters of calls acting as landmarks on the program’s timeline. All calls that a method makes are drawn below its node in the visualization. Calls that do not make any further calls (leaf calls) have fixed width, and all other sends are wide enough to contain all their children; calls with more subcalls are wider than those with fewer subcalls.
         </p>
 
         <p>
         <span>Chrome DevTools<label for="chrome-dev-tools" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="chrome-dev-tools" class="margin-toggle"><span class="sidenote">
-          <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference" target="_blank">Google Developers. <em>Performance Analysis Reference</em></a><br><br>
-          <a href="http://blog.librato.com/posts/chrome-devtools" target="_blank">Librato Blog. <em>Timeline Profiling with Chrome DevTools</em></a>
+          <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference" target="_blank">Google Developers. &ldquo;Performance Analysis Reference&rdquo;</a><br><br>
+          <a href="http://blog.librato.com/posts/chrome-devtools" target="_blank">Librato Blog. &ldquo;Timeline Profiling with Chrome DevTools&rdquo;</a>
         </span> uses a similar icicle plot to provide an overview of all the calls that occur in a profile. But, instead of giving leaf calls a fixed width, all calls are scaled based on their running time.
         </p>
 
@@ -243,7 +243,7 @@
         <h3>Number.fibonacci()</h3>
 
         <p>
-        In the previous section, we saw how a user might interact with a fully written implementation of fibonacci. Here, we show how a user might write the same program, with Seymour’s help. 
+        In the previous section, we saw how a user might interact with a fully written implementation of Number.fibonacci(). Here, we show how a we might implement the same program, with Seymour’s help. 
         </p>
 
         <figure id="video_fib" class="fullwidth">
@@ -256,20 +256,24 @@
 
         <p>
         <a href="#" videoId="video_fib" class="timestamp" start="0:00" end="0:21"></a><br>
-        The user starts by writing an empty method declaration and several calls to fibonacci. Each of these calls can be used as a concrete context in which the user can experiment with the algorithm. Because the user can only take advantage of the micro visualization when they have a call to focus on, they are encouraged to consider different examples that might be helpful in developing an algorithm.
+        We start by writing an empty method declaration and several calls to fibonacci. Each of these calls can be used as a concrete context in which the user can experiment with the algorithm. Because we can only take advantage of the micro visualization when there is a call for us to focus on, we are encouraged to consider a variety of examples that might help us understand different cases in the algorithm.
         </p>
 
         <p>
         <a href="#" videoId="video_fib" class="timestamp" start="0:21" end="0:39"></a><br>
-        The user focuses on 1.fibonacci(), and writes the algorithm’s base case. The micro visualization serves as a steady frame, showing method behaviour as the code changes. We persist the focused call across different program executions, so that the user does not have to repeatedly focus the same call, in order to see the method behaves as the code changes. 
+        We focus on 1.fibonacci(), and writes the algorithm’s base case. The micro visualization serves as a steady frame, showing method behavior as the code changes. As the user edits the method, and the program is re-executed, we <span>persistently focus on the same call<label for="managed-time" class="margin-toggle sidenote-number"></span><input type="checkbox" id="managed-time" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.1145/2661136.2661145" target="_blank">McDirmid and Edwards. &ldquo;Programming with Managed Time&rdquo;</a> section 3</span>. This allows us to edit a method’s code without having to continually re-focus on the call of our choice.
         </p>
 
         <p>
         <a href="#" videoId="video_fib" class="timestamp" start="0:39" end="1:13"></a><br>
-        They finish up by writing the recursive case. We can see the recursive structure of fibonacci emerge in the macro visualization, and the loop shows the correct answers for each call.
+        We finish up by writing the recursive case. We can see the recursive structure of fibonacci emerge in the macro visualization, and the loop shows the correct answers for each call.
         </p>
 
-        <h3>Array.print()</h3>
+        <h3>Array.toString()</h3>
+
+        <p>
+        In this example, we show how we can use Seymour to work with loops. We will implement Array.toString(), which must include the string representation of each of an array’s elements.
+        </p>
 
         <figure id="video_arr_print" class="fullwidth">
           <video class="block light-bg-protect" width="960" height="363" 
@@ -279,6 +283,25 @@
           </video>
         </figure>
 
+        <p>
+        <a href="#" videoId="video_arr_print" class="timestamp" start="0:00" end="0:20"></a><br>
+        Once again, we call our method with a couple examples, in order to ensure that we have enough contexts in which we can develop our algorithm.
+        </p>
+
+        <p>
+        <a href="#" videoId="video_arr_print" class="timestamp" start="0:20" end="1:00"></a><br>
+        Writing the implementation continues in much the same manner as the last example. We know we want to show each element of the array, so we loop. Because we can see multiple iterations of the loop, we can see how the loop body builds up a solution.
+        </p>
+
+        <p>
+        <a href="#" videoId="video_arr_print" class="timestamp" start="1:00" end="1:41"></a><br>
+        Here, we take advantage of the liveness of the environment to experiment with different ways to insert commas to separate each element. Putting a comma before every element does not work, so we only append a comma if we are not handling the first element in the array.
+        </p>
+
+        <p>
+        <a href="#" videoId="video_arr_print" class="timestamp" start="1:41" end="1:51"></a><br>
+        Finally, we inspect the other call to make sure that the method executes as expected.
+        </p>
 
       </section>
       <section>
