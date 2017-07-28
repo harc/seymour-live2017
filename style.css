@@ -113,7 +113,7 @@ div[id^=macroVizScroller] {
    width: 70%; 
 }
 
-img.light-bg-protect, video.light-bg-protect {
+img.light-bg-protect/*, video.light-bg-protect */{
     border: 1px solid #ccc;
 }
 
@@ -141,4 +141,19 @@ span.sectionNumber::before {
 
 img.sidenoteFigure {
   margin-top: 1rem;
+}
+
+.video-mask{
+  width: 960px;
+  /* -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%); 
+  -webkit-transform: rotate(0.000001deg);  */
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px;
+  border-radius: 4px; 
+  overflow: hidden; 
+  border: 1px solid #ccc;
+}
+
+.video-mask > video {
+  object-fit: cover;
 }

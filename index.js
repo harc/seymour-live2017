@@ -174,6 +174,15 @@ videos.forEach(video => {
       video.setAttribute("controls","controls")   
     }
   }
+
+  const togglePlaying = () => {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }
   video.addEventListener('mouseover', toggleControls);
   video.addEventListener('mouseout', toggleControls);
+  video.addEventListener('click', togglePlaying);
 })
