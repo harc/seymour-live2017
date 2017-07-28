@@ -127,7 +127,7 @@ timestamps.forEach(timestamp => {
   timestamp.addEventListener('click', e => {
     video.currentTime = startSeconds;
     currentEndTime = endSeconds;
-    
+
     const timeListener = () => {
       if(currentEndTime !== null && video.currentTime >= currentEndTime) {
         video.pause();
@@ -159,3 +159,16 @@ function parseSeconds(str) {
   const seconds = parseInt(minuteAndSeconds[1]);
   return 60 * minute + seconds;
 }
+
+const videos = Array.from(document.querySelectorAll('video'));
+videos.forEach(video => {
+  const toggleControls = () => {
+    if (video.hasAttribute("controls")) {
+      video.removeAttribute("controls")   
+    } else {
+      video.setAttribute("controls","controls")   
+    }
+  }
+  video.addEventListener('mouseover', toggleControls);
+  video.addEventListener('mouseout', toggleControls);
+})

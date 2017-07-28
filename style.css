@@ -134,5 +134,9 @@ span.sectionNumber::before {
 }
 
 .timestamp::before {
-  content: attr(start) " - " attr(end);
+  content: attr(start) "–" attr(end);
+}
+
+img.sidenoteFigure {
+  margin-top: 1rem;
 }

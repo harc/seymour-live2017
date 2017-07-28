@@ -23,6 +23,26 @@
       </section>
       <section>
         <h2><span class="sectionNumber"></span> Related Work</h2>
+
+        <p>
+        In 
+        <span>&ldquo;Inventing on Principle,&rdquo;<label for="rw-iop" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-iop" class="margin-toggle"><span class="sidenote"><a href="https://vimeo.com/36579366#t=16m25s" target="_blank">Bret Victor. &ldquo;Inventing on Principle&rdquo;</a> @16:25</span> Bret Victor showed a novel visualization of program execution that has heavily influenced the design of our micro visualization. This visualization shows changes to program state over time, with each change lined up with the line of code that produced it. To the best of our knowledge, no other program visualization maps effects to lines of code in this manner. Unlike our visualization, Bret’s does not include summaries of calls, and requires <span>interaction to show a call’s details<label for="rw-iop2" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-iop2" class="margin-toggle"><span class="sidenote"><a href="https://vimeo.com/62049081#t=1m41s" target="_blank">Bret Victor. &ldquo;Showreel 2011&ndash;2012&rdquo;</a> @1:41</span>.
+        </p>
+
+        <p>
+        <span>Light Table<label for="rw-lighttable" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-lighttable" class="margin-toggle"><span class="sidenote"><a href="http://lighttable.com/" target="_blank">Chris Granger. &ldquo;Light Table&rdquo;</a></span> is an IDE that lets users see dynamic runtime state inline with source code. It uses ‘watches’ attached to expressions in the code to reveal their latest value as the program is executed. But, if a statement is run many times (e.g. as part of the body of a function), Light Table does not let the user select which context to show the value for. <span>YinYang<label for="rw-usable" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-usable" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.1145/2509578.2509585" target="_blank">Sean McDirmid. &ldquo;Usable Live Programming&rdquo;</a></span> uses probes (similar to watches) to view expression values. It also uses ‘print’ statements to generate a log, whose outputs are tied to the context in which they are created. By clicking on an item in the log, the user can see probe values at the corresponding context. With Seymour, users can see the details of any context using the macro visualization. But, unlike Light Table and YinYang, Seymour shows all state changes in a scope by default, minimizing the interaction required to see program state.
+        </p>
+
+        <p>
+        <span>DejaVu is a domain-specific IDE extension for &ldquo;interactive camera-based programs&rdquo;<label for="rw-dejavu" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-dejavu" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.1145/2380116.2380142" target="_blank">Kato et. al. &ldquo;DejaVu: integrated support for developing interactive camera-based programs&rdquo;</a></span>. It features a low-level canvas view, which shows the values of variables at a ‘frame of interest’ and high-level timeline view, which shows variable values for many frames. These views complement each other in a similar manner to the micro and macro views in Seymour. However, while DejaVu is designed specifically for the domain of camera-based programs, and features visualizations tailored for displaying image data, Seymour’s visualizations are designed to explain the semantics of generic programs.
+        </p>
+
+        <p>
+        <span>Online Python Tutor<label for="rw-pythontutor" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-pythontutor" class="margin-toggle"><span class="sidenote">
+          <a href="http://dx.doi.org/10.1145/2445196.2445368" target="_blank">Philip J. Guo. &ldquo;Online Python Tutor: Embeddable Web-Based Program Visualization for CS Education&rdquo;</a><br><br>
+          <a href="http://pythontutor.com/live.html" target="_blank"> Philip J. Guo. &ldquo;Live Programming Mode - Python Tutor&rdquo;</a>
+        </span>, a visualization tool for teaching beginner programmers, features a visualization that shows the program’s state at a single point in time. This includes the stack, the heap, and relations between objects. Objects are drawn as boxes, and are connected by arrows, as a professor might depict them in a classroom. We believe that this visualization is complementary to those included in Seymour, and that users would benefit from seeing a visualization that emphasizes different aspects of the program tied to our current views.
+        </p>
       </section>
       <section>
         <h2><span class="sectionNumber"></span> The Programming Environment</h2>
@@ -58,8 +78,8 @@
 
         <figure id="video1" class="fullwidth">
           <video class="block light-bg-protect" width="960" height="65" 
-              preload="auto" controls="" muted="" data-video="0">
-            <!-- poster="./media/seymour.poster.png" -->
+              poster="./media/micro_viz_example/1.poster.png" 
+              preload="auto" muted="" data-video="0">
             <source src="./media/micro_viz_example/1.mp4" type="video/mp4">
           </video>
         </figure>
@@ -76,42 +96,30 @@
 
         <figure id="video2" class="fullwidth">
           <video class="block light-bg-protect" width="960" height="107" 
-              preload="auto" controls="" muted="" data-video="0">
-            <!-- poster="./media/seymour.poster.png" -->
+              poster="./media/micro_viz_example/2.poster.png" 
+              preload="auto" muted="" data-video="0">
             <source src="./media/micro_viz_example/2.mp4" type="video/mp4">
           </video>
         </figure>
 
-        <p>We show loops using several columns. Each column represents an iteration of the loop.</p>
-
-        <figure id="video3" class="fullwidth">
-          <video class="block light-bg-protect" width="960" height="109.5" 
-              preload="auto" controls="" muted="" data-video="0">
-            <!-- poster="./media/seymour.poster.png" -->
-            <source src="./media/micro_viz_example/3.mp4" type="video/mp4">
-          </video>
-        </figure>
-
-        <p>
-        The user can read through a single row to see how a values change over time, or they can read through a column to see what happened in a particular iteration.
-        </p>
+        <p>We show loops using several columns. Each column represents an iteration of the loop. The user can read through a single row to see how a values change over time, or they can read through a column to see what happened in a particular iteration.</p>
 
         <figure id="video4" class="fullwidth">
           <video class="block light-bg-protect" width="960" height="132.5" 
-              preload="auto" controls="" muted="" data-video="0">
-            <!-- poster="./media/seymour.poster.png" -->
-            <source src="./media/micro_viz_example/4.mp4" type="video/mp4">
+              poster="./media/micro_viz_example/4.poster.png" 
+              preload="auto" muted="" data-video="0">
+            <source src="./media/micro_viz_example/4a.mp4" type="video/mp4">
           </video>
         </figure>
 
         <p>
-        Because we only show effect for code that is executed, it is easy to ‘follow the flow’* of the program over time.
+        Because we only show effects for code that is executed, it is easy to ‘follow the flow’* of the program over time.
         </p>
 
         <figure id="video5" class="fullwidth">
           <video class="block light-bg-protect" width="960" height="170.5" 
-              preload="auto" controls="" muted="" data-video="0">
-            <!-- poster="./media/seymour.poster.png" -->
+              poster="./media/micro_viz_example/5.poster.png" 
+              preload="auto" muted="" data-video="0">
             <source src="./media/micro_viz_example/5.mp4" type="video/mp4">
           </video>
         </figure>
@@ -125,7 +133,10 @@
         <p>In addition to built in loop constructs, programmers often rely on control structures implemented in the language (e.g. map, filter, reduce). To the best of our knowledge, when working with these control structures, other similar visualizations do not support rendering these structures in the same manner as loops. Our visualization can detect and show ‘loopy’ code using multiple columns. This allows us to render many control structures, including those defined by the user, automatically.
         </p>
         
-        <p>FIGURES FOR REDUCE AND DO WHILE GO HERE</p>
+        <figure id="reduce">
+          <label for="mn-emoji" class="margin-toggle">⊕</label><input type="checkbox" id="mn-emoji" class="margin-toggle"><span class="marginnote">We use emoji to identify different objects, instead of memory addresses or object IDs.</span>
+          <img class="block light-bg-protect" src="media/reduce.png"></img>
+        </figure>
 
         <p>
         While creating the micro visualization, we sought to help the user avoid simulating the program in their head. We show every state change, without interaction, so that the user does not have to simulate the program to select a portion of the state to show.
@@ -136,7 +147,6 @@
         </p>
 
         <figure id="summary">
-          <label for="mn-emoji" class="margin-toggle">⊕</label><input type="checkbox" id="mn-emoji" class="margin-toggle"><span class="marginnote">We use emoji to identify different objects, instead of memory addresses or object IDs.</span>
           <img class="block light-bg-protect" src="media/summary.png"></img>
         </figure>
 
@@ -167,31 +177,61 @@
         <h3>The Macro Visualization</h3>
 
         <p>
-        The micro view can visualize any single scope in the program. But, views of many different scopes are not enough to get a complete understanding of the program. Programmers need a low-level understanding of individual message sends, and a high level understanding of how these calls relate. Consider the following program:
+        The micro view can visualize any single scope in the program. But, views of disconnected scopes are not enough to get a complete understanding of the program. Programmers need a low-level understanding of individual message sends, and a high level understanding of how these calls relate. 
         </p>
 
-        <figure id="env6" class="fullwidth">
-          <div id="microVizContainer6"></div>
-          <div id="errorDiv6"></div>
-          <div id="macroVizScroller6">
-            <div id="macroVizContainer6"></div>
-          </div>
+        <p>
+        The macro visualization helps the user build this high-level understanding by
+        </p>
+        
+        <ul>
+          <li>showing overall patterns in the program</li>
+          <li>provides a user interface for ‘focusing’ the micro visualization on different scopes</li>
+          <li>serves as a steady frame to which the micro visualization can be related</li>
+        </ul>
+
+        <figure id="screenshot_fib_1">
+          <img class="block light-bg-protect" src="media/fib_macro_viz.png"></img>
         </figure>
 
         <p>
-        The overview visualization shows the ‘big picture’ of the computation. It displays the structure of the program’s message sends while hiding the particular details of what occurred in each send. Because it shows information about the whole program, it is a useful complement to the detail view, helping the user relate the story of a particular scope to the larger program execution. It also serves as a UI element with which the user can select a scope to ‘focus’ on in the detail view.
+        The visualization is a variation on the <span>icicle plot<label for="icicle" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="icicle" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.2307/2685881" target="_blank">Kruskal and Landwehr. <em>Icicle Plots</em></a></span>—a method for visualizing hierarchical data that makes it easy to see the ‘shape’ of a computation. Each method call is drawn as a rectangular node on screen. Time progresses from left to right, with clusters of calls acting as landmarks on the program’s timeline. All calls that a method makes are drawn below its node in the visualization. Calls that do not make any further calls (leaf calls) have fixed width, and all other sends are wide enough to contain all their children; calls with more subcalls are wider than those with fewer subcalls.
         </p>
 
         <p>
-        This visualization is inspired by <span>icicle plots<label for="icicle" class="margin-toggle sidenote-number"></label></span></span><input type="checkbox" id="icicle" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.2307/2685881" target="_blank">Kruskal and Landwehr. <em>Icicle Plots</em></a></span> and <span>flame graphs<label for="flame" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="flame" class="margin-toggle"><span class="sidenote"><a href="http://www.brendangregg.com/flamegraphs.html" target="_blank">Brendan Gregg. <em>Flame Graphs</em></a></span>, which are commonly used in program profilers. Each message send is drawn as a rectangular node on screen, and the caller-callee relationships between sends are shown using the tree structure of the visualization. All calls that are made in a particular message send are drawn below its node in the visualization. Sends that do not make any calls have fixed width, and all other sends are wide enough to contain all their children. 
+        <span>Chrome DevTools<label for="chrome-dev-tools" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="chrome-dev-tools" class="margin-toggle"><span class="sidenote">
+          <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference" target="_blank">Google Developers. <em>Performance Analysis Reference</em></a><br><br>
+          <a href="http://blog.librato.com/posts/chrome-devtools" target="_blank">Librato Blog. <em>Timeline Profiling with Chrome DevTools</em></a>
+        </span> uses a similar icicle plot to provide an overview of all the calls that occur in a profile. But, instead of giving leaf calls a fixed width, all calls are scaled based on their running time.
         </p>
 
         <p>
-        The visualization’s regular structure allows the user to see the ‘shape’ of the computation. Wider nodes contain more sends, and generally make up more of the program execution, while deeper subtrees indicate greater stack depth. Similar call patterns are drawn as similar shapes on screen, and can be used as landmarks in the larger visualization. For example, in the figure above, the repeated shape of the call to ‘Number.fact()’ tells the user that there is some repeated computation going on, and the change in depth of each call indicates how the computation changes with each loop.
+        The visualization also serves as an interactive element to navigate between various scopes in the micro visualization. When the user clicks on a node in the macro visualization, we ‘focus’ the micro visualization on the scope associated with that node. This makes it easy for the user to switch between contexts, drill down, and gather detailed information about the program.
         </p>
+
+        <figure id="fib_focus" class="fullwidth">
+          <video class="block light-bg-protect" width="960" height="455.5" 
+              poster="./media/fib_focus.poster.png" 
+              preload="auto" muted="" data-video="0">
+            <source src="./media/fib_focus.mp4" type="video/mp4">
+          </video>
+        </figure>
+
+        <p>
+        The macro visualization does not change as we focus on different scopes, and it shows every call in the program. This makes it useful as a ‘steady frame’ for navigating the program. But, without further help from the system, it is difficult to connect the time-oriented macro visualization with the code-oriented micro visualization. We help the user make this connection using parallel highlighting. When the user hovers over a node in the macro visualization, we highlight the definition and call site of the call in question. Similarly, when the user hovers over a call in the code, we highlight all nodes in the macro visualization that correspond to that call.
+        </p>
+
+        <figure id="fib_highlighting" class="fullwidth">
+          <video class="block light-bg-protect" width="960" height="455.5" 
+              poster="./media/fib_highlighting.poster.png"
+              preload="auto" muted="" data-video="0"> 
+            <source src="./media/fib_highlighting.mp4" type="video/mp4">
+          </video>
+        </figure>
+
       </section>
       <section>
-        <h2><span class="sectionNumber"></span>Programming with Seymour</h2>
+        <h2><span class="sectionNumber"></span>Live Programming with Seymour</h2>
         <p>
         In this section, we will give the reader a feel for Seymour’s live editing experience.  Using several examples, we will show how the macro view, the micro view, and the ‘focus’ mechanic come together to let the user see the internals of a program as they write it.
         </p>
@@ -203,13 +243,13 @@
         <h3>Number.fibonacci()</h3>
 
         <p>
-        In the previous section, we saw how a user might interact with a fully written implementation of factorial. Here, we show how a user might write the same program, with Seymour’s help. 
+        In the previous section, we saw how a user might interact with a fully written implementation of fibonacci. Here, we show how a user might write the same program, with Seymour’s help. 
         </p>
 
         <figure id="video_fib" class="fullwidth">
           <video class="block light-bg-protect" width="960" height="431.5" 
-              preload="auto" controls="" muted="" data-video="0">
-            <!-- poster="./media/seymour.poster.png" -->
+              poster="./media/fibonacci.poster.png" 
+              preload="auto" muted="" data-video="0">
             <source src="./media/fib.mp4" type="video/mp4">
           </video>
         </figure>
@@ -233,8 +273,8 @@
 
         <figure id="video_arr_print" class="fullwidth">
           <video class="block light-bg-protect" width="960" height="363" 
-              preload="auto" controls="" muted="" data-video="0">
-            <!-- poster="./media/seymour.poster.png" -->
+              poster="./media/array_print.poster.png" 
+              preload="auto" muted="" data-video="0">
             <source src="./media/array_print/array_print.mp4" type="video/mp4">
           </video>
         </figure>
