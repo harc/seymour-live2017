@@ -22,29 +22,6 @@
         <h2><span class="sectionNumber"></span> Introduction</h2>
       </section>
       <section>
-        <h2><span class="sectionNumber"></span> Related Work</h2>
-
-        <p>
-        In 
-        <span>&ldquo;Inventing on Principle,&rdquo;<label for="rw-iop" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-iop" class="margin-toggle"><span class="sidenote"><a href="https://vimeo.com/36579366#t=16m25s" target="_blank">Bret Victor. &ldquo;Inventing on Principle&rdquo;</a> @16:25</span> Bret Victor showed a novel visualization of program execution that has heavily influenced the design of our micro visualization. This visualization shows changes to program state over time, with each change lined up with the line of code that produced it. To the best of our knowledge, no other program visualization maps effects to lines of code in this manner. Unlike our visualization, Bret’s does not include summaries of calls, and requires <span>interaction to show a call’s details<label for="rw-iop2" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-iop2" class="margin-toggle"><span class="sidenote"><a href="https://vimeo.com/62049081#t=1m41s" target="_blank">Bret Victor. &ldquo;Showreel 2011&ndash;2012&rdquo;</a> @1:41</span>.
-        </p>
-
-        <p>
-        <span>Light Table<label for="rw-lighttable" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-lighttable" class="margin-toggle"><span class="sidenote"><a href="http://lighttable.com/" target="_blank">Chris Granger. &ldquo;Light Table&rdquo;</a></span> is an IDE that lets users see dynamic runtime state inline with source code. It uses ‘watches’ attached to expressions in the code to reveal their latest value as the program is executed. But, if a statement is run many times (e.g. as part of the body of a function), Light Table does not let the user select which context to show the value for. <span>YinYang<label for="rw-usable" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-usable" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.1145/2509578.2509585" target="_blank">Sean McDirmid. &ldquo;Usable Live Programming&rdquo;</a></span> uses probes (similar to watches) to view expression values. It also uses ‘print’ statements to generate a log, whose outputs are tied to the context in which they are created. By clicking on an item in the log, the user can see probe values at the corresponding context. With Seymour, users can see the details of any context using the macro visualization. But, unlike Light Table and YinYang, Seymour shows all state changes in a scope by default, minimizing the interaction required to see program state.
-        </p>
-
-        <p>
-        <span>DejaVu is a domain-specific IDE extension for &ldquo;interactive camera-based programs&rdquo;<label for="rw-dejavu" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-dejavu" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.1145/2380116.2380142" target="_blank">Kato et. al. &ldquo;DejaVu: integrated support for developing interactive camera-based programs&rdquo;</a></span>. It features a low-level canvas view, which shows the values of variables at a ‘frame of interest’ and high-level timeline view, which shows variable values for many frames. These views complement each other in a similar manner to the micro and macro views in Seymour. However, while DejaVu is designed specifically for the domain of camera-based programs, and features visualizations tailored for displaying image data, Seymour’s visualizations are designed to explain the semantics of generic programs.
-        </p>
-
-        <p>
-        <span>Online Python Tutor<label for="rw-pythontutor" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-pythontutor" class="margin-toggle"><span class="sidenote">
-          <a href="http://dx.doi.org/10.1145/2445196.2445368" target="_blank">Philip J. Guo. &ldquo;Online Python Tutor: Embeddable Web-Based Program Visualization for CS Education&rdquo;</a><br><br>
-          <a href="http://pythontutor.com/live.html" target="_blank"> Philip J. Guo. &ldquo;Live Programming Mode - Python Tutor&rdquo;</a>
-        </span>, a visualization tool for teaching beginner programmers, features a visualization that shows the program’s state at a single point in time. This includes the stack, the heap, and relations between objects. Objects are drawn as boxes, and are connected by arrows, as a professor might depict them in a classroom. We believe that this visualization is complementary to those included in Seymour, and that users would benefit from seeing a visualization that emphasizes different aspects of the program tied to our current views.
-        </p>
-      </section>
-      <section>
         <h2><span class="sectionNumber"></span> The Programming Environment</h2>
         <p>
         Seymour’s programming environment consists of three different components, as shown in the screenshot below:
@@ -321,7 +298,30 @@
 
       </section>
       <section>
-        <h2><span class="sectionNumber"></span>Ongoing and Future Work</h2>
+        <h2><span class="sectionNumber"></span> Related Work</h2>
+
+        <p>
+        In 
+        <span>&ldquo;Inventing on Principle,&rdquo;<label for="rw-iop" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-iop" class="margin-toggle"><span class="sidenote"><a href="https://vimeo.com/36579366#t=16m25s" target="_blank">Bret Victor. &ldquo;Inventing on Principle&rdquo;</a> @16:25</span> Bret Victor showed a novel visualization of program execution that has heavily influenced the design of our micro visualization. This visualization shows changes to program state over time, with each change lined up with the line of code that produced it. To the best of our knowledge, no other program visualization maps effects to lines of code in this manner. Unlike our visualization, Bret’s does not include summaries of calls, and requires <span>interaction to show a call’s details<label for="rw-iop2" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-iop2" class="margin-toggle"><span class="sidenote"><a href="https://vimeo.com/62049081#t=1m41s" target="_blank">Bret Victor. &ldquo;Showreel 2011&ndash;2012&rdquo;</a> @1:41</span>.
+        </p>
+
+        <p>
+        <span>Light Table<label for="rw-lighttable" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-lighttable" class="margin-toggle"><span class="sidenote"><a href="http://lighttable.com/" target="_blank">Chris Granger. &ldquo;Light Table&rdquo;</a></span> is an IDE that lets users see dynamic runtime state inline with source code. It uses ‘watches’ attached to expressions in the code to reveal their latest value as the program is executed. But, if a statement is run many times (e.g. as part of the body of a function), Light Table does not let the user select which context to show the value for. <span>YinYang<label for="rw-usable" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-usable" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.1145/2509578.2509585" target="_blank">Sean McDirmid. &ldquo;Usable Live Programming&rdquo;</a></span> uses probes (similar to watches) to view expression values. It also uses ‘print’ statements to generate a log, whose outputs are tied to the context in which they are created. By clicking on an item in the log, the user can see probe values at the corresponding context. With Seymour, users can see the details of any context using the macro visualization. But, unlike Light Table and YinYang, Seymour shows all state changes in a scope by default, minimizing the interaction required to see program state.
+        </p>
+
+        <p>
+        <span>DejaVu is a domain-specific IDE extension for &ldquo;interactive camera-based programs&rdquo;<label for="rw-dejavu" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-dejavu" class="margin-toggle"><span class="sidenote"><a href="http://dx.doi.org/10.1145/2380116.2380142" target="_blank">Kato et. al. &ldquo;DejaVu: integrated support for developing interactive camera-based programs&rdquo;</a></span>. It features a low-level canvas view, which shows the values of variables at a ‘frame of interest’ and high-level timeline view, which shows variable values for many frames. These views complement each other in a similar manner to the micro and macro views in Seymour. However, while DejaVu is designed specifically for the domain of camera-based programs, and features visualizations tailored for displaying image data, Seymour’s visualizations are designed to explain the semantics of generic programs.
+        </p>
+
+        <p>
+        <span>Online Python Tutor<label for="rw-pythontutor" class="margin-toggle sidenote-number"></span><input type="checkbox" id="rw-pythontutor" class="margin-toggle"><span class="sidenote">
+          <a href="http://dx.doi.org/10.1145/2445196.2445368" target="_blank">Philip J. Guo. &ldquo;Online Python Tutor: Embeddable Web-Based Program Visualization for CS Education&rdquo;</a><br><br>
+          <a href="http://pythontutor.com/live.html" target="_blank"> Philip J. Guo. &ldquo;Live Programming Mode - Python Tutor&rdquo;</a>
+        </span>, a visualization tool for teaching beginner programmers, features a visualization that shows the program’s state at a single point in time. This includes the stack, the heap, and relations between objects. Objects are drawn as boxes, and are connected by arrows, as a professor might depict them in a classroom. We believe that this visualization is complementary to those included in Seymour, and that users would benefit from seeing a visualization that emphasizes different aspects of the program tied to our current views.
+        </p>
+      </section>
+      <section>
+        <h2><span class="sectionNumber"></span>Future Work</h2>
       </section>
       <section>
         <h2><span class="sectionNumber"></span>Conclusion</h2>
