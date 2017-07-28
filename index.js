@@ -118,6 +118,7 @@
 // }
 
 let currentEndTime = null;
+let seekListeners = [];
 
 const  timestamps = Array.from(document.querySelectorAll('a.timestamp'));
 timestamps.forEach(timestamp => {
@@ -138,13 +139,17 @@ timestamps.forEach(timestamp => {
     let count = 0;
     const seekListener = () => {
       if (count > 0) {
-        console.log('seeking');
+        count = 0;
         currentEndTime = null;
         video.removeEventListener('seeking', seekListener);
+      } else {
+        count++;
       }
-      count++;
     }
     video.addEventListener('timeupdate', timeListener);
+    seekListeners.forEach(l => video.removeEventListener('seeking', l));
+    seekListeners = [];
+    seekListeners.push(seekListener);
     video.addEventListener('seeking', seekListener);
     if (video.paused && !video.ended) {
       video.play();
