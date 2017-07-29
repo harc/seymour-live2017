@@ -19,6 +19,7 @@ body {
 h1, h2, h3, h4, h5,
 p.subtitle {
   font-family: 'Fira Sans', sans-serif;
+  color: #000;
 }
 
 p.subtitle {
@@ -157,3 +158,12 @@ img.sidenoteFigure {
 .video-mask > video {
   object-fit: cover;
 }
+
+body {
+  color: #333;
+}
+
+em {
+  color: #000;
+}
+

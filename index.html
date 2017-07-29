@@ -35,22 +35,21 @@
         These are:
         </p>
 
+        
         <ul>
-          <li>the code editor (top left)</li>
-          <li>the micro view, which can visualize any scope in detail </li>
-          <li>the macro view, which serves as an overview of the whole program </li>
+          <li>the code editor (top left),</li>
+          <li>the <em>micro visualization</em> (top right), which provides details about the activation of a method or function, and</li>
+          <li>the <em>macro visualization</em> (bottom), which provides an overview of the entire program's execution.</li>
         </ul>
 
         <p>
-        Together, these components help the user see and build a model of the inner workings of the program.
+        Together, these components help the programmer see and understand the dynamic behavior of their code, even while they're writing it.
         </p>
 
         <h3>The Micro Visualization</h3>
-        <p>The micro visualization focuses on telling the user a coherent story about the low level details of a program. 
-        </p>
-
         <p>
-        We show effects next to the lines that produce them, and changing the code for an effect changes the visualization live..
+          The micro visualization displays details about the execution of the code. These details are shown next to the lines of code that
+          produced them, and they are updated as the programmer makes changes to the code.
         </p>
 
         <figure id="video1" class="fullwidth">
@@ -70,7 +69,8 @@
         </figure>  -->
 
         <p>
-        Changes to program state are rendered next to the line where they happen, making it easy to connect the code and the micro visualization. We also render a blue dot for each subexpression in the program, allowing the user to see how a value was built up. Users can hover over these dots to see the value the corresponding subexpression returns.
+          Each subexpression in the program is rendered as a blue dot. To see the value of a subexpression, the programmer simply hovers over its corresponding blue
+          dot.
         </p>
 
         <figure id="video2" class="fullwidth">
@@ -83,7 +83,10 @@
           </div>
         </figure>
 
-        <p>We show loops using several columns. Each column represents an iteration of the loop. The user can read through a single row to see how a values change over time, or they can read through a column to see what happened in a particular iteration.</p>
+        <p>
+          Seymour's microvisualization displays loops using a columnar format. Each column represents an iteration of the loop. The programmer can read through a single
+          row to see how a variable changes over time, or they can read through a column to see what happened in a particular iteration.
+        </p>
 
         <figure id="video4" class="fullwidth">
           <div class="video-mask">
@@ -96,7 +99,8 @@
         </figure>
 
         <p>
-        Because we only show effects for code that is executed, it is easy to ‘follow the flow’* of the program over time.
+        Because Seymour only shows effects for code that is executed, it is easy to "follow the flow"* <b>(TODO: add side note / ref. to Bret's stuff)</b>
+        of the program over time.
         </p>
 
         <figure id="video5" class="fullwidth">
@@ -115,7 +119,12 @@
           <div id="errorDiv2"></div>
         </figure>  -->
 
-        <p>In addition to built in loop constructs, programmers often rely on control structures implemented in the language (e.g. map, filter, reduce). To the best of our knowledge, when working with these control structures, other similar visualizations do not support rendering these structures in the same manner as loops. Our visualization can detect and show ‘loopy’ code using multiple columns. This allows us to render many control structures, including those defined by the user, automatically.
+        <p>
+          In addition to built-in loop constructs, programmers often rely on user-defined control structures, e.g. <code>map</code>, <code>filter</code>, and
+          <code>reduce</code>. While these are not loops in the strict sense of the word, they are "loop-like" and the programmer would benefit from being
+          able to visualize them as such. Seymour automatically detects <i>loopy</i> behavior and provides a columnar visualization for it, as shown below. In fact,
+          all of the built-in control structures in Seymour's language are simply message sends / method calls (as in Smalltalk) and they are rendered
+          in a columnar manner using the same mechanishm &mdash; i.e., there is no special handling for built-in control structures.
         </p>
         
         <figure id="reduce">
@@ -123,6 +132,11 @@
           <img class="block light-bg-protect" src="media/reduce.png"></img>
         </figure>
 
+        <p>
+          Note that the call to <code>reduce()</code> is rendered as a loop, even though its implementation is recursive. <b>(TODO: update the video below to show
+          a recursive <code>reduce</code>.)</b> A detailed description of our mechanism for detecting loopiness and Seymour's microvisualization will be the subject of
+          an upcoming paper.
+        </p>
         <p>
         While creating the micro visualization, we sought to help the user avoid simulating the program in their head. We show every state change, without interaction, so that the user does not have to simulate the program to select a portion of the state to show.
         </p>
@@ -162,7 +176,7 @@
         <h3>The Macro Visualization</h3>
 
         <p>
-        The micro view can visualize any single scope in the program. But, views of disconnected scopes are not enough to get a complete understanding of the program. Programmers need a low-level understanding of individual message sends, and a high level understanding of how these calls relate. 
+        Seymour's micro visualization can visualize any single scope in the program. However, views of disconnected scopes are not enough to get a complete understanding of the program. Programmers need a low-level understanding of individual message sends, and a high level understanding of how these calls relate. 
         </p>
 
         <p>
