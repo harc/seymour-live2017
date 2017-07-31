@@ -153,6 +153,7 @@ img.sidenoteFigure {
   border-radius: 4px; 
   overflow: hidden; 
   border: 1px solid #ccc;
+  cursor: pointer;
 }
 
 .video-mask > video {

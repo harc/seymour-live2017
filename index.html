@@ -122,7 +122,7 @@
         </figure>
 
         <p>
-          Seymour's microvisualization displays loops using a columnar format. Each column represents an iteration of the loop. The programmer can read through a single
+          Seymour's micro visualization displays loops using a columnar format. Each column represents an iteration of the loop. The programmer can read through a single
           row to see how a variable changes over time, or they can read through a column to see what happened in a particular iteration.
         </p>
 
@@ -174,7 +174,7 @@
         </figure>
 
         <p>
-          Note that the call to <code>reduce()</code> is rendered as a loop, even though its implementation is recursive. A detailed description of our mechanism for detecting loopiness and Seymour's microvisualization will be the subject of
+          Note that the call to <code>reduce()</code> is rendered as a loop, even though its implementation is recursive. A detailed description of our mechanism for detecting loopiness and Seymour's micro visualization will be the subject of
           an upcoming paper.
         </p>
         <p>
@@ -385,6 +385,53 @@
       </section>
       <section>
         <h2><span class="sectionNumber"></span>Future Work</h2>
+        <h3>Classroom Trials</h3>
+
+        <p>
+        We envision Seymour being used as a tool to assist students and professors in an intro to programming class. However, we have many improvements to make before Seymour is ready to be used in this context. We will be showing our environment in classrooms in the fall, in order to test it on students in a limited manner, and adjust our designs based on their feedback. We have access to an introduction to programming class, and a programming languages class at UCLA, where we will be using our environment to explain the semantics of Python.
+        </p>
+
+        <p>
+        To support these trials, we plan to adapt Seymour to use Python as its underlying language. In order to simplify the process of changing the underlying language, we have developed a language agnostic library for creating the micro and macro visualizations, which can work with any imperative language. With this library, adapting Seymour to a new language becomes a matter of connecting the language’s runtime to the library. We will discuss this library in detail in an upcoming paper.
+        </p>
+
+        <h3>Better Support for Larger Programs</h3>
+
+        <p>
+        While Seymour’s visualizations work well for small programs, they become harder to use as programs grow in size. With larger programs, such as those students write for a class project, we have found that the micro visualization shows too many low level details, while the macro visualization shows too few. We are interested in improving Seymour’s visualizations to better explain these programs.
+        </p>
+
+        <p>
+        The macro visualization can provide a global view of small programs. However, as program size grows, it becomes too large to read and understand. We are interested in using techniques such as trace pruning[?], fisheye, and minimaps to help the user process medium and large programs.
+        </p>
+
+        <p>
+        We would also like to show more low level details in the macro visualization, in order to help users better understand where in their program to focus next. In a previous project (shown below), we visualized the execution of JavaScript methods, and let the user annotate the visualization based on low-level details (e.g. the value of a variable for a particular call).
+        </p>
+
+        <figure id="clarinet">
+          <img class="block light-bg-protect" src="media/clarinet.png"></img>
+        </figure>
+
+        <p>
+        In this example, which shows a parser generator, we can see characters being consumed (green), parse errors (red text), and calls where the parser backtracked (blue). To create an annotation, the user writes a query that selects the calls they want to annotate (e.g. calls that backtrack, calls that consume a character), and modifies their nodes’ appearance in the visualization. These modifications let the user read the macro visualization for high-level, program-specific patterns, instead of having to interact to find the information they are looking for.
+        </p>
+
+        <p>
+        Another solution we are exploring is to make it easy to create domain specific visualizations from Seymour’s runtime data. These visualizations can display program information at the right level of abstraction to help the user understand the program. Instructors can use such a system to great effect, as visualizations can be reused as part of course materials, and can be shared with students as explanatory tools. Having computer-generated visualizations tied into the system also eases the tedious and error-prone process of drawing algorithms on the blackboard.
+        </p>
+
+        <p>
+        Below is a screenshot of an initial attempt at visualizing dijkstra’s algorithm using events emitted by a running program. We use ‘timelines’ to show how a graph is traversed as the algorithm progresses. These visualizations are live, and update as the user changes the code.
+        </p>
+
+        <figure id="dijkstra">
+          <img class="block light-bg-protect" src="media/dijkstra.png"></img>
+        </figure>
+
+        <h3>Language Features</h3>
+
+        <p>Modular side effects, and maybe interventions here?</p>
       </section>
       <section>
         <h2><span class="sectionNumber"></span>Conclusion</h2>
