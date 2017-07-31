@@ -16,12 +16,12 @@
       HARC/Y Combinator Research</p>
 
       <section id="abstract">
-        <blockquote><b>TODO: abstract goes here.</b> This project involves discovering how the American Revolution was remembered during the nineteenth century.  The goal is to show that the American Revolution was memorialized by the actions of the United States government during the 1800s. This has been done by examining events such as the Supreme Court cases of John Marshall and the Nullification Crisis. Upon examination of these events, it becomes clear that John Marshall and John Calhoun (creator of the Doctrine of Nullification) attempted to use the American Revolution to bolster their claims by citing speeches from Founding Fathers. Through showing that the American Revolution lives on in memory, this research highlights the importance of the revolution in shaping the actions of the United States government.</blockquote>
+        <blockquote><b>TODO: abstract goes here.</b>
       </section>
       <section>
         <h2><span class="sectionNumber"></span>Introduction</h2>
         <p>
-        The live programming community has produced many inspiring visions of programming. Chris… steady frame, adjusting rather than aiming. Bret ... immediate connection between creator and creation. Seeing immediate effects, also nothing hidden . Sean … . 
+        The live programming community has produced many inspiring visions of programming. Chris… steady frame, adjusting rather than aiming. Bret ... immediate connection between creator and creation. Seeing immediate effects, also nothing hidden . Sean … .
         </p>
 
         <p>
@@ -32,7 +32,7 @@
         One such strategy is to solve a smaller version of the problem and adapt some of the techniques we develop to a broader solution. We have begun developing an environment that aims to provide a better programming experience for an introduction to programming course. There are several advantages that this use case affords us.
         </p>
 
-        <p> 
+        <p>
         First, the size and complexity of the programs students write is far smaller than those written for commercial purposes. They are also implied by the class curriculum, homework assignments, and projects, all of which the teacher has some control over. This allows us to design experiences without being constrained by scalability[design, efficiency]. Furthermore, because the teacher controls class assignments, we can build custom, domain specific experiences for each assignment, instead of attempting to create a fully general experience. Even if we never manage to make this PX scale to be useful in the world, this project has the potential to make programming much more accessible and help students overcome the steep learning curve of programming.
         </p>
 
@@ -73,7 +73,7 @@
         These are:
         </p>
 
-        
+
         <ul>
           <li>the code editor (top left),</li>
           <li>the <em>micro visualization</em> (top right), which provides details about the activation of a method or function, and</li>
@@ -92,8 +92,8 @@
 
         <figure id="video1" class="fullwidth">
           <div class="video-mask">
-          <video class="block light-bg-protect" width="960" height="65" 
-              poster="./media/micro_viz_example/1.poster.png" 
+          <video class="block light-bg-protect" width="960" height="65"
+              poster="./media/micro_viz_example/1.poster.png"
               preload="auto" muted="" data-video="0">
             <source src="./media/micro_viz_example/1.mp4" type="video/mp4">
           </video>
@@ -113,8 +113,8 @@
 
         <figure id="video2" class="fullwidth">
           <div class="video-mask">
-          <video class="block light-bg-protect" width="960" height="107" 
-              poster="./media/micro_viz_example/2.poster.png" 
+          <video class="block light-bg-protect" width="960" height="107"
+              poster="./media/micro_viz_example/2.poster.png"
               preload="auto" muted="" data-video="0">
             <source src="./media/micro_viz_example/2.mp4" type="video/mp4">
           </video>
@@ -128,8 +128,8 @@
 
         <figure id="video4" class="fullwidth">
           <div class="video-mask">
-          <video class="block light-bg-protect" width="960" height="132.5" 
-              poster="./media/micro_viz_example/4.poster.png" 
+          <video class="block light-bg-protect" width="960" height="132.5"
+              poster="./media/micro_viz_example/4.poster.png"
               preload="auto" muted="" data-video="0">
             <source src="./media/micro_viz_example/4a.mp4" type="video/mp4">
           </video>
@@ -146,8 +146,8 @@
 
         <figure id="video5" class="fullwidth">
           <div class="video-mask">
-          <video class="block light-bg-protect" width="960" height="170.5" 
-              poster="./media/micro_viz_example/5.poster.png" 
+          <video class="block light-bg-protect" width="960" height="170.5"
+              poster="./media/micro_viz_example/5.poster.png"
               preload="auto" muted="" data-video="0">
             <source src="./media/micro_viz_example/5.mp4" type="video/mp4">
           </video>
@@ -167,7 +167,7 @@
           all of the built-in control structures in Seymour's language are simply message sends / method calls (as in Smalltalk) and they are rendered
           in a columnar manner using the same mechanishm &mdash; i.e., there is no special handling for built-in control structures.
         </p>
-        
+
         <figure id="reduce">
           <label for="mn-emoji" class="margin-toggle no-star"></label><input type="checkbox" id="mn-emoji" class="margin-toggle"><span class="marginnote">We use emoji to identify different objects, instead of memory addresses or object IDs.</span>
           <img class="block light-bg-protect" src="media/reduce.png"></img>
@@ -216,13 +216,13 @@
         <h3>The Macro Visualization</h3>
 
         <p>
-        Seymour's micro visualization can visualize any single scope in the program. However, views of disconnected scopes are not enough to get a complete understanding of the program. Programmers need a low-level understanding of individual message sends, and a high level understanding of how these calls relate. 
+        Seymour's micro visualization can visualize any single scope in the program. However, views of disconnected scopes are not enough to get a complete understanding of the program. Programmers need a low-level understanding of individual message sends, and a high level understanding of how these calls relate.
         </p>
 
         <p>
         The macro visualization helps the user build this high-level understanding by
         </p>
-        
+
         <ul>
           <li>showing overall patterns in the program</li>
           <li>provides a user interface for ‘focusing’ the micro visualization on different scopes</li>
@@ -246,7 +246,7 @@
         <span class="marginnote">
           <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference" target="_blank">Google Developers. &ldquo;Performance Analysis Reference&rdquo;</a><br><br>
           <a href="http://blog.librato.com/posts/chrome-devtools" target="_blank">Librato Blog. &ldquo;Timeline Profiling with Chrome DevTools&rdquo;</a>
-        </span> 
+        </span>
         uses a similar icicle plot to provide an overview of all the calls that occur in a profile. But, instead of giving leaf calls a fixed width, all calls are scaled based on their running time.
         </p>
 
@@ -256,8 +256,8 @@
 
         <figure id="fib_focus" class="fullwidth">
           <div class="video-mask">
-          <video class="block light-bg-protect" width="960" height="455.5" 
-              poster="./media/fib_focus.poster.png" 
+          <video class="block light-bg-protect" width="960" height="455.5"
+              poster="./media/fib_focus.poster.png"
               preload="auto" muted="" data-video="0">
             <source src="./media/fib_focus.mp4" type="video/mp4">
           </video>
@@ -270,9 +270,9 @@
 
         <figure id="fib_highlighting" class="fullwidth">
           <div class="video-mask">
-          <video class="block light-bg-protect" width="960" height="455.5" 
+          <video class="block light-bg-protect" width="960" height="455.5"
               poster="./media/fib_highlighting.poster.png"
-              preload="auto" muted="" data-video="0"> 
+              preload="auto" muted="" data-video="0">
             <source src="./media/fib_highlighting.mp4" type="video/mp4">
           </video>
           </div>
@@ -292,13 +292,13 @@
         <h3>Number.fibonacci()</h3>
 
         <p>
-        In the previous section, we saw how a user might interact with a fully written implementation of <code>Number.fibonacci()</code>. Here, we show how a we might implement the same program, with Seymour’s help. 
+        In the previous section, we saw how a user might interact with a fully written implementation of <code>Number.fibonacci()</code>. Here, we show how a we might implement the same program, with Seymour’s help.
         </p>
 
         <figure id="video_fib" class="fullwidth">
           <div class="video-mask">
-          <video class="block light-bg-protect" width="960" height="431.5" 
-              poster="./media/fibonacci.poster.png" 
+          <video class="block light-bg-protect" width="960" height="431.5"
+              poster="./media/fibonacci.poster.png"
               preload="auto" muted="" data-video="0">
             <source src="./media/fib.mp4" type="video/mp4">
           </video>
@@ -331,8 +331,8 @@
 
         <figure id="video_arr_print" class="fullwidth">
           <div class="video-mask">
-          <video class="block light-bg-protect" width="960" height="363" 
-              poster="./media/array_print.poster.png" 
+          <video class="block light-bg-protect" width="960" height="363"
+              poster="./media/array_print.poster.png"
               preload="auto" muted="" data-video="0">
             <source src="./media/array_print/array_print.mp4" type="video/mp4">
           </video>
@@ -364,8 +364,12 @@
         <h2><span class="sectionNumber"></span> Related Work</h2>
 
         <p>
-        In 
-        <span>&ldquo;Inventing on Principle,&rdquo;<label for="rw-iop" class="margin-toggle"></label></span><input type="checkbox" id="rw-iop" class="margin-toggle"><span class="marginnote"><a href="https://vimeo.com/36579366#t=16m25s" target="_blank">Bret Victor. &ldquo;Inventing on Principle&rdquo;</a> @16:25</span> Bret Victor showed a novel visualization of program execution that has heavily influenced the design of our micro visualization. This visualization shows changes to program state over time, with each change lined up with the line of code that produced it. To the best of our knowledge, no other program visualization maps effects to lines of code in this manner. Unlike our visualization, Bret’s does not include summaries of calls, and requires <span>interaction to show a call’s details<label for="rw-iop2" class="margin-toggle"></label></span><input type="checkbox" id="rw-iop2" class="margin-toggle"><span class="marginnote"><a href="https://vimeo.com/62049081#t=1m41s" target="_blank">Bret Victor. &ldquo;Showreel 2011&ndash;2012&rdquo;</a> @1:41</span>.
+        In
+        <span>&ldquo;Inventing on Principle,&rdquo;<label for="rw-iop" class="margin-toggle"></label></span><input type="checkbox" id="rw-iop" class="margin-toggle"><span class="marginnote"><a href="https://vimeo.com/36579366#t=16m25s" target="_blank">Bret Victor. &ldquo;Inventing on Principle&rdquo;</a> @16:25</span> Victor introduced a novel visualization of program execution that has heavily influenced the design of Seymour's micro visualization.
+        His visualization displays changes to program state over time, with each change lined up with the line of code that produced it.
+        Our micro visualization builds on Victor's visualization and extends it with <em>call summaries</em>, which enable the programmer to see the side-effects that resulted from a call,
+        at the call site. In Victor's visualization, this information is only available via local expansion (or inlining) of the call<label for="rw-iop2" class="margin-toggle"></label></span><input type="checkbox" id="rw-iop2" class="margin-toggle"><span class="marginnote"><a href="https://vimeo.com/62049081#t=1m41s" target="_blank">Bret Victor. &ldquo;Showreel 2011&ndash;2012&rdquo;</a> @1:41</span> &mdash;
+        and because this requires interaction, these side effects (e.g., assignments to global variables) are easy to miss.
         </p>
 
         <p>
@@ -500,7 +504,7 @@
 
     <!-- pulling it all together -->
 
-    <link rel="stylesheet" href="seymour-interpreter/seymour.css"> 
+    <link rel="stylesheet" href="seymour-interpreter/seymour.css">
     <link rel="stylesheet" href="seymour-interpreter/highlighting.css">
 
     <script src="seymour-interpreter/lib.js"></script>
