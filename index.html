@@ -165,7 +165,7 @@
           <code>reduce</code>. While these are not loops in the strict sense of the word, they are "loop-like" and the programmer would benefit from being
           able to visualize them as such. Seymour automatically detects <i>loopy</i> behavior and provides a columnar visualization for it, as shown below. In fact,
           all of the built-in control structures in Seymour's language are simply message sends / method calls (as in Smalltalk) and they are rendered
-          in a columnar manner using the same mechanishm &mdash; i.e., there is no special handling for built-in control structures.
+          in a columnar manner using the same mechanism&mdash;i.e., there is no special handling for built-in control structures.
         </p>
 
         <figure id="reduce">
@@ -190,7 +190,7 @@
         </figure>
 
         <p>
-        Because the call to f is preceded by a statement that increments a, and followed by a statement that decrements it, the user might expect a to be 5 at the end of the program. If we do not show that f sets a to 7, the user must resort to reading f’s source to figure out why a is not 5 at the end of the program. But, because we do show f’s side effects, at a glance, the user can confirm that a = 6 because f set a to 7 before it was decremented.
+        Because the call to <code>f()</code> is preceded by a statement that increments <code>a</code>, and followed by a statement that decrements it, the user might expect <code>a</code> to be 5 at the end of the program. If we do not show that <code>f()</code> sets <code>a</code> to 7, the user must resort to reading <code>f()</code>’s source to figure out why <code>a</code> is not 5 at the end of the program. But, because we do show <code>f()</code>’s side effects, at a glance, the user can confirm that <code>a = 6</code> because <code>f()</code> set <code>a</code> to 7 before it was decremented.
         </p>
 
         <p>
@@ -202,7 +202,7 @@
         </figure>
 
         <p>
-        A message send's summary elides most of its implementation details in order to give the user 'just enough’ information to continue reading the story of the execution. But, if the user is interested in these details, we can show the story of any message send. In fact, we treat the program as a message send, and show its implementation details as we would those of any other message. For example, we can show the details of the call to add5 below.
+        A message send's summary elides most of its implementation details in order to give the user 'just enough’ information to continue reading the story of the execution. But, if the user is interested in these details, we can show the story of any message send. In fact, we treat the program as a message send, and show its implementation details as we would those of any other message. For example, we can show the details of the call to <code>add5()</code> below.
         </p>
 
         <figure id="adder">
@@ -210,7 +210,7 @@
         </figure>
 
         <p>
-        When visualizing a message send, we also show all lexical scopes that the send has access to. Thus, all the information needed to calculate the send’s result is on screen, and the method only has access to the values it can ‘see’. In the program above, which visualizes the call to add5, we know the value of ‘this’ which the add5 call has access to at a glance.
+        When visualizing a message send, we also show all lexical scopes that the send has access to. Thus, all the information needed to calculate the send’s result is on screen, and the method only has access to the values it can ‘see’. In the program above, which visualizes the call to  <code>add5()</code>, we know the value of <code>this</code> which the  <code>add5()</code> call has access to at a glance.
         </p>
 
         <h3>The Macro Visualization</h3>
@@ -225,8 +225,8 @@
 
         <ul>
           <li>showing overall patterns in the program</li>
-          <li>provides a user interface for ‘focusing’ the micro visualization on different scopes</li>
-          <li>serves as a steady frame to which the micro visualization can be related</li>
+          <li>providing a user interface for ‘focusing’ the micro visualization on different scopes</li>
+          <li>serving as a steady frame to which the micro visualization can be related</li>
         </ul>
 
         <figure id="screenshot_fib_1">
@@ -368,13 +368,12 @@
         <span>&ldquo;Inventing on Principle,&rdquo;<label for="rw-iop" class="margin-toggle"></label></span><input type="checkbox" id="rw-iop" class="margin-toggle"><span class="marginnote"><a href="https://vimeo.com/36579366#t=16m25s" target="_blank">Bret Victor. &ldquo;Inventing on Principle&rdquo;</a> @16:25</span> Victor introduced a novel visualization of program execution that has heavily influenced the design of Seymour's micro visualization.
         His visualization displays changes to program state over time, with each change lined up with the line of code that produced it.
         Our micro visualization builds on Victor's visualization and extends it with <em>call summaries</em>, which enable the programmer to see the side-effects that resulted from a call,
-        at the call site. In Victor's visualization, this information is only available via local expansion (or inlining) of the call<label for="rw-iop2" class="margin-toggle"></label></span><input type="checkbox" id="rw-iop2" class="margin-toggle"><span class="marginnote"><a href="https://vimeo.com/62049081#t=1m41s" target="_blank">Bret Victor. &ldquo;Showreel 2011&ndash;2012&rdquo;</a> @1:41</span> &mdash;
-        and because this requires interaction, these side effects (e.g., assignments to global variables) are easy to miss.
+        at the call site. In Victor's visualization, this information is only available via local expansion (or inlining) of the call<label for="rw-iop2" class="margin-toggle"></label></span><input type="checkbox" id="rw-iop2" class="margin-toggle"><span class="marginnote"><a href="https://vimeo.com/62049081#t=1m41s" target="_blank">Bret Victor. &ldquo;Showreel 2011&ndash;2012&rdquo;</a> @1:41</span>&mdash;and because this requires interaction, these side effects (e.g., assignments to global variables) are easy to miss.
         </p>
 
         <p>
         <span>Light Table<label for="rw-lighttable" class="margin-toggle"></label></span><input type="checkbox" id="rw-lighttable" class="margin-toggle"><span class="marginnote"><a href="http://lighttable.com/" target="_blank">Chris Granger. &ldquo;Light Table&rdquo;</a></span> is an IDE that enables programmers to see dynamic (runtime) state inline with source code.
-        It supports <em>watches</em>, which can be attached to expressions in the code to reveal their latest value as the program is executed. However, if a statement or expression is evaluated many times &mdash; e.g., as part of the body of a function that is called more than once &mdash; Light Table does not let the programmer select the context or activation that is associated with a watch.
+        It supports <em>watches</em>, which can be attached to expressions in the code to reveal their latest value as the program is executed. However, if a statement or expression is evaluated many times&mdash;e.g., as part of the body of a function that is called more than once&mdash;Light Table does not let the programmer select the context or activation that is associated with a watch.
         <span>YinYang<label for="rw-usable" class="margin-toggle"></label></span><input type="checkbox" id="rw-usable" class="margin-toggle"><span class="marginnote"><a href="http://dx.doi.org/10.1145/2509578.2509585" target="_blank">Sean McDirmid. &ldquo;Usable Live Programming&rdquo;</a></span> solves this problem with its <em>probes</em>, which also enable the programmer to view the values of expressions. Probes are similar to Light Table's watches, but they are associated with ‘print’ statements which generate log entries that are tied to the context in which they were created. By clicking on an item in the log, the programmer can see the probe values at the corresponding context. With Seymour, the programmer can see the details of any context by selecting it via the macro visualization. But unlike Light Table and YinYang, Seymour shows <em>all</em> of the side effects in the selected context automatically, minimizing the interaction required to see program state.
         </p>
 
@@ -414,7 +413,10 @@
         </p>
 
         <p>
-        The macro visualization can provide a global view of small programs. However, as program size grows, it becomes too large to read and understand. We are interested in using techniques such as trace pruning[?], fisheye, and minimaps to help the user process medium and large programs.
+        The macro visualization can provide a global view of small programs. However, as program size grows, it becomes too large to read and understand. We are interested in using techniques such as <span>trace pruning<label for="mn-bohnet" class="margin-toggle"></label></span>
+        <input type="checkbox" id="mn-bohnet" class="margin-toggle"><span class="marginnote">
+          <a href="https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/index/index/docId/32254" target="_blank">Johannes Bohnet. <em>Visualization of Execution Traces and its Application to Software Maintenance</em></a>
+        </span>, fisheye, and minimaps to help the user process medium and large programs.
         </p>
 
         <p>
@@ -447,6 +449,20 @@
       </section>
       <section>
         <h2><span class="sectionNumber"></span>Conclusion</h2>
+
+        <p>
+        We have shown Seymour—a live programming environment that visualizes program execution as the user types. Seymour features a micro visualization, which shows details of the program’s execution, and a macro visualization, which puts the micro visualization in context, and lets the user focus on different parts of the program execution. These visualizations come together to give the user a meaningful live programming experience.
+        </p>
+
+        <p>
+        We are excited about the prospect of using this environment in the classroom and learning from student feedback. In doing so, we hope to make Seymour a valuable learning aid for students, and ultimately, create a better user experience for all programmers.
+        </p>
+      </section>
+
+      <section>
+        <h2>Acknowledgements</h2>
+
+        <p>We would like to thank Sean McDirmid, Marko Röder, Aran Lunzer and Yoshiki Ohshima for their valuable feedback.</p>
       </section>
       <section id="references">
         <h2>References</h2>
