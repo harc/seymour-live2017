@@ -83,7 +83,7 @@
         </p>
 
         <figure id="overview">
-          <label for="mn-language" class="margin-toggle no-star"></label><input type="checkbox" id="mn-language" class="margin-toggle"><span class="marginnote">The prototype shown in this paper relies on our own language&mdash;an unholy combination of JavaScript and Smalltalk. Before using Seymour in classrooms, we plan to adapt it to use Python instead. See the Future Work section for more details.</span>
+          <label for="mn-language" class="margin-toggle no-star"></label><input type="checkbox" id="mn-language" class="margin-toggle"><span class="marginnote">The prototype shown in this paper relies on our own language&mdash;an unholy combination of JavaScript and Smalltalk. Before using Seymour in classrooms, we plan to adapt it to use Python instead. See the <a href="#futurework">Future Work section</a> for more details.</span>
           <img class="block light-bg-protect" src="media/overview.png"></img>
         </figure>
 
@@ -208,7 +208,7 @@
         </figure>
 
         <p>
-        Because the call to <code>f()</code> is preceded by a statement that increments <code>a</code>, and followed by a statement that decrements it, the user might expect <code>a</code> to be 5 at the end of the program. If we do not show that <code>f()</code> sets <code>a</code> to 7, the user must resort to reading <code>f()</code>’s source to figure out why <code>a</code> is not 5 at the end of the program. But, because we do show <code>f()</code>’s side effects, at a glance, the user can confirm that <code>a = 6</code> because <code>f()</code> set <code>a</code> to 7 before it was decremented.
+        Because the call to <code>f()</code> is preceded by a statement that increments <code>a</code>, and followed by a statement that decrements it, the user might expect <code>a</code> to be <code>5</code> at the end of the program. If we do not show that <code>f()</code> sets <code>a</code> to <code>7</code>, the user must resort to reading <code>f()</code>’s source to figure out why <code>a</code> is not <code>5</code> at the end of the program. But, because we do show <code>f()</code>’s side effects, at a glance, the user can confirm that <code>a = 6</code> because <code>f()</code> set <code>a</code> to <code>7</code> before it was decremented.
         </p>
 
         <p>
@@ -243,7 +243,7 @@
 
         <ul>
           <li>showing overall patterns in the program</li>
-          <li>providing a user interface for ‘focusing’ the micro visualization on different scopes</li>
+          <li>providing a user interface for ‘focusing’ the micro visualization on different calls</li>
           <li>serving as a steady frame to which the micro visualization can be related</li>
         </ul>
 
@@ -269,7 +269,7 @@
         </p>
 
         <p>
-        The visualization also serves as an interactive element to navigate between various scopes in the micro visualization. When the user clicks on a node in the macro visualization, we ‘focus’ the micro visualization on the scope associated with that node. This makes it easy for the user to switch between contexts, drill down, and gather detailed information about the program.
+        The visualization also serves as an interactive element to navigate between various calls in the micro visualization. When the user clicks on a node in the macro visualization, we ‘focus’ the micro visualization on the call associated with that node. This makes it easy for the user to switch between contexts, drill down, and gather detailed information about the program.
         </p>
 
         <figure id="fib_focus" class="fullwidth">
@@ -283,7 +283,7 @@
         </figure>
 
         <p>
-        The macro visualization does not change as we focus on different scopes, and it shows every call in the program. This makes it useful as a ‘steady frame’ for navigating the program. But, without further help from the system, it is difficult to connect the time-oriented macro visualization with the code-oriented micro visualization. We help the user make this connection using parallel highlighting. When the user hovers over a node in the macro visualization, we highlight the definition and call site of the call in question. Similarly, when the user hovers over a call in the code, we highlight all nodes in the macro visualization that correspond to that call.
+        The macro visualization does not change as we focus on different calls, and it shows every call in the program. This makes it useful as a ‘steady frame’ for navigating the program. But, without further help from the system, it is difficult to connect the time-oriented macro visualization with the code-oriented micro visualization. We help the user make this connection using parallel highlighting. When the user hovers over a node in the macro visualization, we highlight the definition and call site of the call in question. Similarly, when the user hovers over a call in the code, we highlight all nodes in the macro visualization that correspond to that call.
         </p>
 
         <figure id="fib_highlighting" class="fullwidth">
@@ -404,7 +404,7 @@
         <span>DejaVu is a domain-specific IDE extension for &ldquo;interactive camera-based programs&rdquo;<label for="rw-dejavu" class="margin-toggle"></label></span><input type="checkbox" id="rw-dejavu" class="margin-toggle"><span class="marginnote"><a href="http://dx.doi.org/10.1145/2380116.2380142" target="_blank">Kato et. al. &ldquo;DejaVu: integrated support for developing interactive camera-based programs&rdquo;</a></span>.
         It features a low-level canvas view that shows the values of variables at a ‘frame of interest’, and a high-level timeline view that shows variable values for many frames.
         These views complement each other in a similar manner to the micro and macro views in Seymour.
-        But whereas DejaVu is designed specifically for the domain of camera-based programs and features visualizations tailored for displaying image data, Seymour’s visualizations are designed to explain the semantics of generic programs. We discuss ways to integrate domain specific visualizations with Seymour in the future work section.
+        But whereas DejaVu is designed specifically for the domain of camera-based programs and features visualizations tailored for displaying image data, Seymour’s visualizations are designed to explain the semantics of generic programs. We discuss ways to integrate domain specific visualizations with Seymour in the <a href="#futurework">future work section</a>.
         </p>
 
         <p>
@@ -416,7 +416,7 @@
         This type of visualization is complementary to those provided by Seymour, and we believe  programmers would benefit from seeing them together.
         </p>
       </section>
-      <section>
+      <section id="futurework">
         <h2><span class="sectionNumber"></span>Future Work</h2>
         <h3>Classroom Trials</h3>
 
@@ -500,16 +500,62 @@
         <h2>References</h2>
 
         <ol class="fullwidth">
-        <li> Brendan Gregg. <em>Flame Graphs</em>. Retrieved from <a target="_blank" href="http://www.brendangregg.com/flamegraphs.html">http://www.brendangregg.com/flamegraphs.html</a>
+        <li>
+          Kayce Basques. Performance Analysis Reference. Retrieved from <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference" target="_blank">https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference</a>
         </li>
         <li>
-          J. B. Kruskal and J. M. Landwehr. 1983. <em>Icicle Plots: Better Displays for Hierarchical Clustering</em>. The American Statistician 37, 2 (1983), 162–168. DOI:<a target="_blank" href="https://doi.org/10.2307/2685881">https://doi.org/10.2307/2685881</a>
+          Johannes Bohnet. 2010. <em>Visualization of Execution Traces and its Application to Software Maintenance</em>. PhD Dissertation. Mathematisch-Naturwissenschaftliche Fakultät / Institut für Informatik, Potsdam. Retrieved from <a href="https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/index/index/docId/32254" target="_blank">https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/index/index/docId/32254</a>
         </li>
         <li>
-          Bret Victor. 2012. <em>Inventing on Principle</em>. Retrieved from <a target="_blank" href="https://vimeo.com/36579366">https://vimeo.com/36579366</a>
+          Jonathan Edwards. 2004. Example Centric Programming. <em>SIGPLAN Not.</em> 39, 12 (December 2004), 84-91. DOI:<a href="https://dx.doi.org/10.1145/1052883.1052894" target="_blank">https://dx.doi.org/10.1145/1052883.1052894</a>
         </li>
         <li>
-          Bret Victor. 2012. <em>Learnable Programming</em>. Retrieved from <a target="_blank" href="http://worrydream.com/LearnableProgramming/">http://worrydream.com/LearnableProgramming/</a>
+          Chris Granger. Light Table. Retrieved from <a href="http://lighttable.com/" target="_blank">http://lighttable.com/</a>
+        </li>
+        <li>
+          Brendan Gregg. Flame Graphs. Retrieved from <a href="http://www.brendangregg.com/flamegraphs.html" target="_blank">http://www.brendangregg.com/flamegraphs.html</a>
+        </li>
+        <li>
+          Philip J. Guo. 2013. Online Python Tutor: Embeddable Web-based Program Visualization for Cs Education. In <em>Proceeding of the 44th ACM Technical Symposium on Computer Science Education</em> (SIGCSE &rsquo;13), 579&ndash;584. DOI: <a href="https://dx.doi.org/10.1145/2445196.2445368" target="_blank">https://dx.doi.org/10.1145/2445196.2445368</a>
+        </li>
+        <li>
+          Philip J. Guo. Live Programming Mode - Python Tutor. Retrieved from <a href="http://pythontutor.com/live.html#mode=edit" target="_blank">http://pythontutor.com/live.html#mode=edit</a>
+        </li>
+        <li>
+          Christopher Michael Hancock. 2003. <em>Real-time programming and the big ideas of computational literacy</em>. PhD Dissertation. Massachusetts Institute of Technology, Boston. Retrieved from <a href="http://dspace.mit.edu/handle/1721.1/61549" target="_blank">http://dspace.mit.edu/handle/1721.1/61549</a>
+        </li>
+        <li>
+          Jun Kato, Sean McDirmid, and Xiang Cao. 2012. DejaVu: Integrated Support for Developing Interactive Camera-based Programs. In <em>Proceedings of the 25th Annual ACM Symposium on User Interface Software and Technology</em> (UIST &rsquo;12), 189&ndash;186. DOI: <a href="https://dx.doi.org/10.1145/2380116.2380142" target="_blank">https://dx.doi.org/10.1145/2380116.2380142</a>
+        </li>
+        <li>
+          J. B. Kruskal and J. M. Landwehr. 1983. Icicle Plots: Better Displays for Hierarchical Clustering. <em>The American Statistician</em> 37, 2 (1983), 162&ndash;168. DOI: <a href="https://dx.doi.org/10.2307/2685881" target="_blank">https://dx.doi.org/10.2307/2685881</a>
+        </li>
+        <li>
+          Sean McDirmid. 2013. Usable Live Programming. In <em>Proceedings of the 2013 ACM International Symposium on New Ideas, New Paradigms, and Reflections on Programming & Software</em> (Onward! 2013), 53&ndash;62. DOI: <a href="https://dx.doi.org/10.1145/2509578.2509585" target="_blank">https://dx.doi.org/10.1145/2509578.2509585</a>
+        </li>
+        <li>
+          Sean McDirmid. 2016. The Promise of Live Programming. In <em>Proceedings of the Workshow on Live Programming</em> (LIVE 2016). Retrieved from <a href="http://2016.ecoop.org/event/live-2016-the-promise-of-live-programming" target="_blank">http://2016.ecoop.org/event/live-2016-the-promise-of-live-programming</a>
+        </li>
+        <li>
+          Sean McDirmid and Jonathan Edwards. 2014. Programming with Managed Time. In <em>Proceedings of the 2014 ACM International Symposium on New Ideas, New Paradigms, and Reflections on Programming & Software</em> (Onward! 2014), 1&ndash;10. DOI: <a href="https://dx.doi.org/10.1145/10.1145/2661136.2661145" target="_blank">https://dx.doi.org/10.1145/10.1145/2661136.2661145</a>
+        </li>
+        <li>
+          Juha Sorva. 2012. <em>Visual program simulation in introductory programming education</em>. PhD Dissertation. Aalto University. Retrieved from DOI: <a href="https://aaltodoc.aalto.fi:443/handle/123456789/3534" target="_blank">https://aaltodoc.aalto.fi:443/handle/123456789/3534</a>
+        </li>
+        <li>
+          Bret Victor. 2012. Inventing on Principle. Retrieved from <a href="https://vimeo.com/36579366" target="_blank">https://vimeo.com/36579366</a>
+        </li>
+        <li>
+          Bret Victor. 2012. Learnable Programming. Retrieved from <a href="http://worrydream.com/LearnableProgramming/" target="_blank">http://worrydream.com/LearnableProgramming/</a>
+        </li>
+        <li>
+          Bret Victor. 2013. <em>Showreel 2011&ndash;2012</em>. Retrieved from <a href="https://vimeo.com/62049081#t=1m41s" target="_blank">https://vimeo.com/62049081#t=1m41s</a>
+        </li>
+        <li>
+          Michelle Q. Wang Baldonado, Allison Woodruff, and Allan Kuchinsky. 2000. Guidelines for Using Multiple Views in Information Visualization. In <em>Proceedings of the Working Conference on Advanced Visual Interfaces</em> (AVI &rsquo;00), 110&ndash;119. DOI: <a href="https://dx.doi.org/10.1145/345513.345271" target="_blank">https://dx.doi.org/10.1145/345513.345271</a>
+        </li>
+        <li>
+          Timeline Profiling with Chrome DevTools. <em>Librato Blog</em>. Retrieved from <a href="http://blog.librato.com/posts/chrome-devtools">http://blog.librato.com/posts/chrome-devtools</a>
         </li>
         </ol>
 
