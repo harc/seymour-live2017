@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i|Vollkorn:400,400i,700,700i|Spectral:400,400i,500,500i,600,600i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i|Vollkorn:400,400i,700,700i|Spectral:400,400i,500,500i,600,600i,700,700i|Gentium+Book+Basic:400,400i,700,700i|Merriweather:400,400i,700,700i&amp;subset=latin-ext');
 
 html { font-size: 13px; }
 
 body {
-   font-family: 'Vollkorn', serif; 
+   font-family: 'Gentium Book Basic', serif; 
   background-color: hsl(60,35%,99%);
   font-kerning: normal;
   text-rendering: optimizeLegibility;
@@ -42,12 +42,12 @@ code, pre.code {
 }
 
 .sidenote-number:after, .sidenote:before {
-    font-family: 'Vollkorn', serif;
+    font-family: 'Gentium Book Basic', serif;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   a:link {
-    background-position-y: 87%, 87%, 77%;/*85%;*/
+     background-position-y: 87%, 87%, 90%;
   }
 }
 
