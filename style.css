@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i|Vollkorn:400,400i,700,700i|Spectral:400,400i,500,500i,600,600i,700,700i|Gentium+Book+Basic:400,400i,700,700i|Merriweather:400,400i,700,700i&amp;subset=latin-ext');
+@import url("fonts/Charter/stylesheet.css");
 
 html { font-size: 13px; }
 
 body {
-   font-family: 'Gentium Book Basic', serif; 
+   font-family: 'Charter', serif; 
   background-color: hsl(60,35%,99%);
   font-kerning: normal;
   text-rendering: optimizeLegibility;
   counter-reset: sidenote-counter section-counter;
+  color: hsl(0, 0%, 22%);
 }
 
 #abstract > blockquote {
@@ -42,12 +44,12 @@ code, pre.code {
 }
 
 .sidenote-number:after, .sidenote:before {
-    font-family: 'Gentium Book Basic', serif;
+    font-family: 'Charter', serif;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   a:link {
-     background-position-y: 87%, 87%, 90%;
+     background-position-y: 87%, 87%, 97%;
   }
 }
 
@@ -158,10 +160,6 @@ img.sidenoteFigure {
 
 .video-mask > video {
   object-fit: cover;
-}
-
-body {
-  color: #333;
 }
 
 em.keyword{
