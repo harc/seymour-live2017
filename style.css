@@ -9,7 +9,7 @@ body {
   font-kerning: normal;
   text-rendering: optimizeLegibility;
   counter-reset: sidenote-counter section-counter;
-  color: hsl(0, 0%, 22%);
+  color: hsl(0, 0%, 18%);
 }
 
 #abstract > blockquote {
