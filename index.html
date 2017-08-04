@@ -22,7 +22,7 @@
       </section>
 
       <section id="abstract">
-        <blockquote>We want to create a better programming experience for learning and teaching programming. This paper describes Seymour, which features two live visualizations of a program’s execution. One shows the execution’s details and another depicts it at a high level. These two visualizations come together to create a compelling user experience that we plan to test and improve with student feedback.</blockquote>
+        <blockquote>We want to create a better programming experience for learning and teaching programming. This paper describes Seymour, a live programming environment that features two visualizations of a program’s execution. One shows the execution’s details and another depicts it at a high level. These two visualizations come together to create a compelling user experience that we plan to test and improve with student feedback.</blockquote>
       </section>
       <section>
         <h2><span class="sectionNumber"></span>Introduction</h2>
@@ -284,12 +284,14 @@
         </p>
 
         <figure id="video_fib" class="fullwidth">
+          <div class="video-scroll-wrapper">
           <div class="video-mask">
           <video class="block light-bg-protect" width="960" height="473.5"
               poster="./media/fibonacci.poster.png"
               preload="auto" muted="" data-video="0">
             <source src="./media/fib.mp4" type="video/mp4">
           </video>
+          </div>
           </div>
         </figure>
 
@@ -322,19 +324,21 @@
         </span>.
         </p>
 
-        <h3>Array.toString()</h3>
+        <h3 id="arr_toString">Array.toString()</h3>
 
         <p>
         This example shows how the user can work with loops in Seymour. They will implement <code>Array.toString()</code>, which must include the string representation of each of an array’s elements.
         </p>
 
         <figure id="video_arr_toString" class="fullwidth">
+          <div class="video-scroll-wrapper">
           <div class="video-mask">
           <video class="block light-bg-protect" width="960" height="315.5"
               poster="./media/array_toString.poster.png"
               preload="auto" muted="" data-video="0">
             <source src="./media/array_toString.mp4" type="video/mp4">
           </video>
+          </div>
           </div>
         </figure>
 
@@ -364,8 +368,8 @@
         </p>
 
       </section>
-      <section>
-        <h2><span class="sectionNumber"></span> Related Work</h2>
+      <section id="related-work">
+        <h2><span class="sectionNumber"></span>Related Work</h2>
 
         <p>
         In

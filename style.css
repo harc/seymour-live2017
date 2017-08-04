@@ -253,3 +253,14 @@ label.margin-toggle:not(.sidenote-number)::after {
   color: hsl(0, 0%, 100%);
   box-shadow: 2px 2px 2px hsl(0, 0%, 30%);
 }
+
+.video-scroll-wrapper {
+  position: relative;
+}
+
+.stick {
+  position: absolute;
+  /* top: 1rem;  */
+  transition: top 0.05s;
+  z-index: 10000;
+}

@@ -186,3 +186,47 @@ videos.forEach(video => {
   video.addEventListener('mouseout', toggleControls);
   video.addEventListener('click', togglePlaying);
 })
+
+const fibExample = {
+  video: document.querySelector('#video_fib .video-mask'),
+  wrapper: document.querySelector('#video_fib .video-scroll-wrapper'),
+  end: document.querySelector('#arr_toString')
+};
+
+const toStringExample = {
+  video: document.querySelector('#video_arr_toString .video-mask'),
+  wrapper: document.querySelector('#video_arr_toString .video-scroll-wrapper'),
+  end: document.querySelector('#related-work')
+};
+
+const examples = [fibExample, toStringExample];
+
+function relocateAll() {
+  examples.forEach(example => sticky_relocate(example));  
+}
+
+function sticky_relocate(example) {
+  let windowTop = $(window).scrollTop();
+  let divTop = $(example.wrapper).offset().top;
+
+  let divBottom = $(example.wrapper).outerHeight() + 20;
+  let bottom = $(example.end).offset().top - windowTop;
+
+  if (example === fibExample) console.log(bottom, divBottom);
+  if (windowTop > divTop && bottom > divBottom) {
+    $(example.video).addClass('stick');
+    $(example.video).css({top: `calc(${Math.floor(windowTop - divTop)}px + 1rem)`});
+    $(example.wrapper).height($(example.video).outerHeight());
+  } else if (windowTop < divTop) {
+    $(example.video).removeClass('stick');
+    $(example.video).css({top: 'initial'});
+    $(example.wrapper).height('initial');
+  }
+}
+
+$(function() {
+  examples.forEach(example => {
+    $(window).scroll(relocateAll);
+    relocateAll();
+  })
+})
