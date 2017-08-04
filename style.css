@@ -12,6 +12,44 @@ body {
   color: hsl(0, 0%, 18%);
 }
 
+a:link {
+    background: 
+      -webkit-linear-gradient(hsl(60,35%,99%), hsl(60,35%,99%)), 
+      -webkit-linear-gradient(hsl(60,35%,99%), hsl(60,35%,99%)), 
+      -webkit-linear-gradient(hsl(0, 0%, 20%), hsl(0, 0%, 20%));
+    background: 
+      linear-gradient(hsl(60,35%,99%), hsl(60,35%,99%)), 
+      linear-gradient(hsl(60,35%,99%), hsl(60,35%,99%)), 
+      linear-gradient(hsl(0, 0%, 20%), hsl(0, 0%, 20%));
+    
+    -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+
+    background-repeat: no-repeat, no-repeat, repeat-x;
+
+    text-shadow: 
+      0.03em 0 hsl(60,35%,99%), 
+      -0.03em 0 hsl(60,35%,99%), 
+      0 0.03em hsl(60,35%,99%), 
+      0 -0.03em hsl(60,35%,99%), 
+      0.06em 0 hsl(60,35%,99%), 
+      -0.06em 0 hsl(60,35%,99%), 
+      0.09em 0 hsl(60,35%,99%), 
+      -0.09em 0 hsl(60,35%,99%), 
+      0.12em 0 hsl(60,35%,99%), 
+      -0.12em 0 hsl(60,35%,99%), 
+      0.15em 0 hsl(60,35%,99%), 
+      -0.15em 0 hsl(60,35%,99%);
+    background-position: 0% 93%, 100% 93%, 0% 93%;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  a:link {
+     background-position-y: 87%, 87%, 97%;
+  }
+}
+
 #abstract > blockquote {
   width: 45%;
   font-size: 1.2rem;
@@ -45,12 +83,6 @@ code, pre.code {
 
 .sidenote-number:after, .sidenote:before {
     font-family: 'Charter', serif;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  a:link {
-     background-position-y: 87%, 87%, 97%;
-  }
 }
 
 @media (max-width: 760px) {
@@ -186,4 +218,38 @@ label.margin-toggle:not(.sidenote-number)::after {
 .marginnote:before { 
   content: "* ";
   top: -0.5rem; 
+}
+
+#codeHighlight {
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 2px;
+  background-color: HSL(219, 82%, 75%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: 2px 2px 2px hsl(0, 0%, 30%);
+}
+
+#macroDefinitionHighlight {
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 2px;
+  background-color: HSL(216, 80%, 90%);
+  box-shadow: 2px 2px hsl(0, 0%, 80%);
+}
+
+#macroCallHighlight {
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 2px;
+  background-color: HSL(220, 84%, 85%);
+  box-shadow: 2px 2px hsl(0, 0%, 80%);
+}
+
+#macroFocusHighlight {
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 2px;
+  background-color: HSL(218, 91%, 65%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: 2px 2px 2px hsl(0, 0%, 30%);
 }
