@@ -17,7 +17,7 @@
 
       <section>
       <p>
-        <b>For our reviewers: By the time we submit final version of this paper, all videos will include an ‘interact’ button, which will allow the reader to edit the program in the video.</b>
+        <b>For our reviewers: By the time we submit final version of this paper, each video will include an ‘interact’ button, which will allow the reader to edit the program in the video. Also, this web essay has only been tested on the latest version of Google Chrome, and has not been optimized for mobile phones.</b>
       </p>
       </section>
 
@@ -52,9 +52,7 @@
           <li>A <em class="keyword">macro visualization</em> that serves as an overview of the program’s execution, and can be used as a tool to <em class="keyword">focus</em> on different points in the execution.</li>
         </ul>
 
-        <p>
-        The programming environment we describe here has not been user tested. But, we intend to pilot it in classrooms this fall.
-        </p>
+        <p>We have also developed a library that makes it easy to generate these visualizations from the runtime data of any imperative language. We will discuss the details of this library in an upcoming paper.</p>
       </section>
       <section>
         <h2><span class="sectionNumber"></span>The Programming Environment</h2>
@@ -297,17 +295,17 @@
 
         <p>
         <a href="#" videoId="video_fib" class="timestamp" start="0:00" end="0:15"></a><br>
-        The user starts by writing a call to <code>fibonacci()</code> and a blank method definition. They focus on <code>5.fibonacci()</code> to get that example working.
+        The user starts by writing a call to <code>fibonacci()</code> and a blank method definition. Initially, the plan is to get <code>5.fibonacci()</code> working.
         </p>
 
         <p>
         <a href="#" videoId="video_fib" class="timestamp" start="0:17" end="0:30"></a><br>
-        They realize that <code>5.fibonacci()</code>’s result depends on <code>4</code> and <code>3</code>’s results, and decide to work on getting <code>1.fibonacci()</code> and <code>2.fibonacci()</code> (the base cases) working instead.
+        Realizing that <code>5.fibonacci()</code>’s result depends on <code>4</code> and <code>3</code>’s results, the user decides to concentrate on <code>1.fibonacci()</code> and <code>2.fibonacci()</code> (the base cases) instead.
         </p>
 
         <p>
         <a href="#" videoId="video_fib" class="timestamp" start="0:32" end="0:45"></a><br>
-        They focus on <code>2.fibonacci()</code> and implement the base case. The calls to <code>1.fibonacci()</code> and <code>2.fibonacci()</code> update to show the correct answer. While the user edits the code, the micro visualization <span>remains focused on the same call<label for="managed-time" class="margin-toggle"></label></span>
+        Focusing on <code>2.fibonacci()</code>, the user writes code to handle the base cases. The calls to <code>1.fibonacci()</code> and <code>2.fibonacci()</code> update to show the correct answer. While the user edits the code, the micro visualization <span>remains focused on the same call<label for="managed-time" class="margin-toggle"></label></span>
         <input type="checkbox" id="managed-time" class="margin-toggle">
         <span class="marginnote">
           This technique is described in <a href="http://dx.doi.org/10.1145/2661136.2661145" target="_blank">McDirmid and Edwards. &ldquo;Programming with Managed Time,&rdquo;</a> section 3.
@@ -317,11 +315,11 @@
 
         <p>
         <a href="#" videoId="video_fib" class="timestamp" start="0:57" end="1:24"></a><br>
-        Now, they have all the parts necessary to write the rest of the implementation. They focus on <code>3.fibonacci()</code> and implement the recursive case. They can see the results of each recursive call and <span>use that information to complete the implementation<label for="example-centric" class="margin-toggle"></label></span>
+        Now, they have all the parts necessary to write the rest of the implementation. They focus on <code>3.fibonacci()</code> and implement the recursive case. They can see the results of each recursive call and <span>use that information to complete the implementation.<label for="example-centric" class="margin-toggle"></label></span>
         <input type="checkbox" id="example-centric" class="margin-toggle">
         <span class="marginnote">
           Similar methods for using runtime information are described in <a href="https://dl.acm.org/citation.cfm?id=542865" target="_blank"><em>Anatomy of Lisp</em></a>, section 6.21 and <a href="http://dx.doi.org/10.1145/1052883.1052894" target="_blank">&ldquo;Example Centric Programming&rdquo;</a>.
-        </span>.
+        </span>
         </p>
 
         <h3 id="arr_toString">Array.toString()</h3>
@@ -399,7 +397,7 @@
         <h3>Classroom Trials</h3>
 
         <p>
-        We envision Seymour being used as a tool to assist students and professors in an intro to programming class. However, we have many improvements to make before Seymour is ready to be used in this context. We will be showing our environment in classrooms in the fall in order to test it on students in a limited manner and adjust our designs based on their feedback. We have access to an intro to programming class and a programming languages class at UCLA, where we will be using our environment to explain the semantics of Python. 
+        We envision Seymour being used as a tool to assist students and professors in an intro to programming class. However, Seymour has not been user tested, and we have many improvements to make before it is ready to be used to teach a class. We will be showing our environment in classrooms in the fall in order to test it on students in a limited manner and adjust our designs based on their feedback. We have access to an intro to programming class and a programming languages class at UCLA, where we will be using our environment to explain the semantics of Python. 
         </p>
 
         <p>
@@ -472,7 +470,7 @@
       <section>
         <h2>Acknowledgements</h2>
 
-        <p>We would like to thank ... for their valuable feedback.</p>
+        <p>We would like to thank Patrick Dubroy, Aran Lunzer, Sean McDirmid, Yoshiki Ohshima, and Marko Röder for their valuable feedback on this paper.</p>
       </section>
       <section id="references">
         <h2>References</h2>
