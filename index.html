@@ -279,7 +279,7 @@
 
 
         <p>
-        In the previous section, we saw how a user might interact with a fully written implementation of <code>Number.fibonacci()</code>. This example shows how one might implement <code>fibonacci()</code> by focusing on getting several concrete examples working.
+        In the previous section, we saw how a user might interact with a fully written implementation of <code>Number.fibonacci()</code>. This example shows how one might implement <code>fibonacci()</code> by getting several concrete examples working.
         </p>
 
         <figure id="video_fib" class="fullwidth">
@@ -309,7 +309,7 @@
         Focusing on <code>2.fibonacci()</code>, the user writes code to handle the base cases. The calls to <code>1.fibonacci()</code> and <code>2.fibonacci()</code> update to show the correct answer. While the user edits the code, the micro visualization <span>remains focused on the same call<label for="managed-time" class="margin-toggle"></label></span>
         <input type="checkbox" id="managed-time" class="margin-toggle">
         <span class="marginnote">
-          This technique is described in <a href="http://dx.doi.org/10.1145/2661136.2661145" target="_blank">McDirmid and Edwards. &ldquo;Programming with Managed Time,&rdquo;</a> section 3.
+          This technique is described in <a href="http://dx.doi.org/10.1145/2661136.2661145" target="_blank">McDirmid and Edwards&rsquo; &ldquo;Programming with Managed Time,&rdquo;</a> section 3.
         </span>
         , allowing them to see how the edits affect the method’s execution.
         </p>
@@ -319,14 +319,14 @@
         Now, they have all the parts necessary to write the rest of the implementation. They focus on <code>3.fibonacci()</code> and implement the recursive case. They can see the results of each recursive call and <span>use that information to complete the implementation.<label for="example-centric" class="margin-toggle"></label></span>
         <input type="checkbox" id="example-centric" class="margin-toggle">
         <span class="marginnote">
-          Similar methods for using runtime information are described in <a href="https://dl.acm.org/citation.cfm?id=542865" target="_blank"><em>Anatomy of Lisp</em></a>, section 6.21 and <a href="http://dx.doi.org/10.1145/1052883.1052894" target="_blank">&ldquo;Example Centric Programming&rdquo;</a>.
+          Similar methods for using runtime information are described in Allen&rsquo;s <a href="https://dl.acm.org/citation.cfm?id=542865" target="_blank"><em>Anatomy of Lisp</em></a>, section 6.21 and Edwards&rsquo; <a href="http://dx.doi.org/10.1145/1052883.1052894" target="_blank">&ldquo;Example Centric Programming&rdquo;</a>.
         </span>
         </p>
 
         <h3 id="arr_toString">Array.toString()</h3>
 
         <p>
-        This example shows how the user can work with loops in Seymour. They will implement <code>Array.toString()</code>, which must include the string representation of each of an array’s elements.
+        This example shows how the user can work with loops in Seymour. They will implement <code>Array.toString()</code>, which must include the string representation of element of an array.
         </p>
 
         <figure id="video_arr_toString" class="fullwidth">
@@ -343,7 +343,7 @@
 
         <p>
         <a href="#" videoId="video_arr_toString" class="timestamp" start="0:00" end="0:19"></a><br>
-        Once again they call the method with a couple examples and try to get them working.
+        Once again, the user calls the method with a couple examples and tries to get them working.
         </p>
 
         <p>
@@ -353,7 +353,7 @@
 
         <p>
         <a href="#" videoId="video_arr_toString" class="timestamp" start="0:42" end="1:17"></a><br>
-        They use the liveness of the environment to experiment with different ways of combining the elements. Initially, they incorrectly prepend <code>sx</code> to <code>ans</code>. After seeing <code>ans</code> gaining a new item at the beginning, instead of the end, they correct the mistake.
+        Using the liveness of the environment, the programmer experiments with different ways of combining the elements. Initially, they incorrectly prepend <code>sx</code> to <code>ans</code>. After seeing <code>ans</code> gaining a new item at the beginning, instead of the end, they correct the mistake.
         </p>
 
         <p>
@@ -477,6 +477,9 @@
         <h2>References</h2>
 
         <ol class="fullwidth">
+        <li>
+          John Allen. 1978. <em>Anatomy of LISP</em>. McGraw Hill, Inc., New York, NY, USA.
+        </li>
         <li>
           Kayce Basques. Performance Analysis Reference. Retrieved from <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference" target="_blank">https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference</a>
         </li>
