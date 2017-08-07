@@ -52,7 +52,9 @@
           <li>a <em class="keyword">macro visualization</em> that serves as an overview of the program’s execution, and can be used as a tool to <em class="keyword">focus</em> on different points in the execution.</li>
         </ul>
 
-        <p>We have also developed a library that makes it easy to generate these visualizations from the runtime data of any imperative language. We will discuss the details of this library in an upcoming paper.</p>
+        <p>
+        This is a vision paper that describes Seymour's macro and micro visualizations and how they come together to create a compelling live programming experience. We intend to discuss the technical details of Seymour's implementation in a subsequent paper.
+        </p>
       </section>
       <section>
         <h2><span class="sectionNumber"></span>The Programming Environment</h2>
@@ -358,12 +360,12 @@
 
         <p>
         <a href="#" videoId="video_arr_toString" class="timestamp" start="1:17" end="1:43"></a><br>
-        They try out different ways to insert commas between each element. Putting a comma before every element does not work so they do not append a comma before the first element in the array.
+        The user tries out different ways to insert commas between each element. Putting a comma before every element does not work so they do not append a comma before the first element in the array.
         </p>
 
         <p>
         <a href="#" videoId="video_arr_toString" class="timestamp" start="1:43" end="1:47"></a><br>
-        Finally, they inspect the other call to make sure that the method executes as expected.
+        Finally, the user inspects the other call to make sure that the method executes as expected.
         </p>
 
       </section>
@@ -377,7 +379,7 @@
 
         <p>
         <span>Light Table<label for="rw-lighttable" class="margin-toggle"></label></span><input type="checkbox" id="rw-lighttable" class="margin-toggle"><span class="marginnote"><a href="http://lighttable.com/" target="_blank">Chris Granger. &ldquo;Light Table&rdquo;</a></span> is an IDE that enables programmers to see dynamic (runtime) state inline with source code. It supports <em class="keyword">watches</em> that can be attached to expressions in the code to reveal their latest value as the program is executed. However, if a statement or expression is evaluated many times&mdash;e.g., as part of the body of a function that is called more than once&mdash;Light Table does not let the programmer select the context or activation that is associated with a watch.
-        <span>YinYang<label for="rw-usable" class="margin-toggle"></label></span><input type="checkbox" id="rw-usable" class="margin-toggle"><span class="marginnote"><a href="http://dx.doi.org/10.1145/2509578.2509585" target="_blank">Sean McDirmid. &ldquo;Usable Live Programming&rdquo;</a></span> solves this problem with its <em class="keyword">probes</em> that also enable the programmer to view the values of expressions. Probes are similar to Light Table's watches, but they are associated with an implicit execution context that must be activated through navigation or through a bookmark (attached to <code>print</code> statements). By activating an execution context, the programmer can see the corresponding probe values. With Seymour, the programmer can see the details of any context by selecting it via the macro visualization. But unlike Light Table and YinYang, Seymour shows <em class="keyword">all</em> of the side effects in the selected context automatically, minimizing interaction required to see program state.
+        <span>YinYang<label for="rw-usable" class="margin-toggle"></label></span><input type="checkbox" id="rw-usable" class="margin-toggle"><span class="marginnote"><a href="http://dx.doi.org/10.1145/2509578.2509585" target="_blank">Sean McDirmid. &ldquo;Usable Live Programming&rdquo;</a></span> solves this problem with its <em class="keyword">probes</em> that also enable the programmer to view the values of expressions. Probes are similar to Light Table's watches, but they are associated with an implicit execution context that must be activated through navigation or through a bookmark (created when a <code>print</code> statement is executed). By activating an execution context, the programmer can see the corresponding probe values. With Seymour, the programmer can see the details of any context by selecting it via the macro visualization. But unlike Light Table and YinYang, Seymour shows <em class="keyword">all</em> of the side effects in the selected context automatically, minimizing interaction required to see program state.
         </p>
 
         <p>
@@ -398,17 +400,17 @@
         <h3>Classroom Trials</h3>
 
         <p>
-        We envision Seymour being used as a tool to assist students and professors in an intro to programming class. However, Seymour has not been user tested, and we have many improvements to make before it is ready to be used to teach a class. We will be showing our environment in classrooms in the fall in order to test it on students in a limited manner and adjust our designs based on their feedback. We have access to an intro to programming class and a programming languages class at UCLA, where we will be using our environment to explain the semantics of Python. 
+        We envision Seymour being used as a tool to assist students and professors in an intro to programming class. However, Seymour has not been user tested as of the time of this writing, and we have many improvements to make before it is ready to be used to teach a class. We will be showing our programming environment in classrooms in the fall in order to test it on students and adjust our designs based on their feedback. We have access to an intro to programming class and a programming languages class at UCLA, where we will be using Seymour to help students learn Python. 
         </p>
 
         <p>
-        To support these trials, we plan to adapt Seymour to use Python as its underlying language. To simplify the process of changing the underlying language, we have developed a language agnostic library for creating micro and macro visualizations which can work with any imperative language. With this library, adapting Seymour to a new language becomes a simple matter of connecting the language’s runtime to the library. We will discuss this library in detail in an upcoming paper.
+        To support these trials, we plan to adapt Seymour to use Python as its underlying language. To simplify the process of changing the underlying language, we have developed a language-agnostic library for creating micro and macro visualizations which can work with any imperative language. With this library, adapting Seymour to a new language becomes a simple matter of connecting the language’s runtime to the library. We will discuss this library in detail in an upcoming paper.
         </p>
 
         <h3>Better Support for Larger Programs</h3>
 
         <p>
-        While Seymour’s visualizations work well for small programs, they become harder to use as programs grow in size. With larger programs such as those students write for a class project, we have found that the micro visualization shows too many low level details, while the macro visualization shows too few. We are interested in improving Seymour’s visualizations to better explain such programs.
+        While Seymour’s visualizations work well for small programs, they become harder to use as programs grow in size. With larger programs, such as those students write for a class project, we have found that the micro visualization shows too many low level details, while the macro visualization shows too few. We are interested in improving Seymour’s visualizations to better explain such programs.
         </p>
 
         <p>
@@ -427,7 +429,7 @@
         </figure>
 
         <p>
-        In this example, which shows a parser generator, characters being consumed are shown in green, parse errors are shown with red text, and calls where the parser backtracked are shown in blue. To create an annotation, the user writes a query that selects the calls they want to annotate (e.g. calls that backtrack, calls that consume a character), and modifies their nodes’ appearance in the visualization. These modifications let the user read the macro visualization for high-level, program-specific patterns, instead of having to interact to find the information they are looking for.
+        In this example, which shows a parser generator, characters being consumed are shown in <span id="fw-consumeChar">green</span>, parse errors are shown with <span id="fw-parseError">red text</span>, and calls where the parser backtracked are shown in <span id="fw-backtrack">blue</span>. To create an annotation, the user writes a query that selects the calls they want to annotate (e.g. calls that backtrack, calls that consume a character), and modifies their nodes’ appearance in the visualization. These modifications let the user read the macro visualization for high-level, program-specific patterns, instead of having to interact to find the information they are looking for.
         </p>
 
         <p>
@@ -435,7 +437,7 @@
         </p>
 
         <p>
-        Below is a screenshot of an initial attempt at visualizing dijkstra’s algorithm using information from a running program. We use timelines to show how a graph is traversed as the algorithm progresses. Red nodes are nodes that have not yet been traversed, and each node’s distance from node a is shown next to the node’s label. This visualization is live and updates as the user changes the code.
+        Below is a screenshot of an initial attempt at visualizing Dijkstra’s algorithm using information from a running program. We use a timeline to show how a graph is traversed as the algorithm progresses. Red nodes are nodes that have not yet been traversed, and each node’s distance from node a is shown next to the node’s label. This visualization is live and updates as the user changes the code.
         </p>
 
         <figure id="dijkstra">
@@ -452,15 +454,15 @@
           <img class="block light-bg-protect" src="media/1to10.png"></img>
         </figure>
 
-        <p>We have begun experimenting with <em class="keyword">modular side effects</em>, a language extension that allows an object to specify how its side effects should be presented to its clients. An object can indicate which of its instance variables it owns and can choose how to present all side effects that affect these objects, allowing it to give an abstracted view of its side effects. For example, when inserting an element into a red-black tree, instead of seeing many rotations of the tree (which would be confusing for someone using the tree as a set), clients might only see that an element has been inserted.</p>
+        <p>We have begun experimenting with <em class="keyword">modular side effects</em>, a language extension that allows an object to specify how its internal state should be presented to its clients. An object can indicate which of its instance variables it owns and the system can present side effects by diffing before and after reperesentations of the object's state. This abstracted view of side effects is more accessible to the user. For example, when inserting an element into a red-black tree, instead of seeing many rotations of the tree (which would be confusing for someone using the tree as a set), the user might only see that an element has been inserted.</p>
 
-        <p>Together with our colleague Jonathan Edwards, we have also started exploring <em class="keyword">interventions</em>&mdash;a mechanism that lets programmers temporarily modify program execution to aid development. In addition to indicating a method call, call summaries can serve as affordances to change the program’s execution. If an incomplete method call produces an incorrect answer, we can <em class="keyword">intervene</em> and assert that the method call return the correct value. An assertion can become a unit test, and its value can be substituted for its call’s return value, allowing the programmer to focus on components other than the one that is behaving incorrectly.</p>
+        <p>Together with our colleague Jonathan Edwards, we have also started exploring <em class="keyword">interventions</em>&mdash;a mechanism that lets programmers temporarily modify program execution to aid development. In addition to displaying the effects of a call, call summaries can be used to change the program’s execution. If a method call produces an incorrect answer, the user can <em class="keyword">intervene</em> and assert that the method call return the correct value. This assertion can then become a unit test, and its value can be substituted for the call’s return value, allowing the user to make progress on other parts of the program and address the broken method at a later time.</p>
       </section>
       <section>
         <h2><span class="sectionNumber"></span>Conclusion</h2>
 
         <p>
-        Seymour is a live programming environment that visualizes program execution as the user types. It features a micro visualization that shows details of the program’s execution, and a macro visualization that puts the micro visualization in context, letting the user focus on different parts of the program execution. These visualizations come together to give the user a meaningful live programming experience.
+        Seymour is a live programming environment that visualizes program execution as the user types. It features a micro visualization that shows details of the program’s execution, and a macro visualization that puts the micro visualization in context, letting the user focus on different parts of the program execution. These visualizations come together to give the user a helpful live programming experience.
         </p>
 
         <p>

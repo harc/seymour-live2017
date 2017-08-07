@@ -254,6 +254,27 @@ label.margin-toggle:not(.sidenote-number)::after {
   box-shadow: 2px 2px 2px hsl(0, 0%, 30%);
 }
 
+#fw-consumeChar {
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 2px;
+  background-color: HSL(77, 56%, 80%);
+}
+
+#fw-parseError {
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 2px;
+  color: HSL(0, 100%, 52%);
+}
+
+#fw-backtrack {
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 2px;
+  background-color: HSL(191, 100%, 81%);
+}
+
 .video-scroll-wrapper {
   position: relative;
 }
