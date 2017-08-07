@@ -27,7 +27,7 @@
       <section>
         <h2><span class="sectionNumber"></span>Introduction</h2>
         <p>
-        The live programming community has produced many inspiring visions of programming. However, we have yet to see these ideas significantly impact how we program today. There are significant design and engineering problems that stand in the way of creating live programming experiences fit for widespread adoption. It may be too difficult to make an experience scale to the needs of programmers at large in one shot. Perhaps we can solve a smaller version of the problem and adapt some of the techniques we develop to a broader solution. We are developing an environment that aims to provide a better programming experience for an intro to programming course.
+        The live programming community has produced many inspiring visions of programming, but we have yet to see these ideas significantly impact how we program today. There are substantial design and engineering problems that stand in the way of creating live programming experiences fit for widespread adoption. It may be too difficult to make an experience scale to the needs of programmers at large in one shot. Perhaps we can solve a smaller version of the problem and adapt some of the techniques we develop to a broader solution. We are developing an environment that aims to provide a better programming experience for an intro to programming course.
         </p>
 
         <p>
@@ -35,7 +35,7 @@
         </p>
 
         <p>
-        This paper presents Seymour, an early prototype that follows this strategy. The goal of Seymour is to help beginners develop an intuition for program semantics, and encourage experimentation. We do this by providing a visualization of a program, rendered as the student writes it, that tells a cohesive story. Students and teachers spend significant time simulating the behaviour of a program (mentally, or on paper), often erroneously. An automated method to create visual explanations of these programs can significantly ease the mental burden of teachers and students alike when introduced in the right context; i.e. by having the professor and students draw the visualization before transitioning to a <span>computer generated version.<label for="sorva-thesis" class="margin-toggle"></label></span><input type="checkbox" id="sorva-thesis" class="margin-toggle">
+        This paper presents Seymour, an early prototype that follows this strategy. The goal of Seymour is to help beginners develop an intuition for program semantics, and encourage experimentation. We do this by providing a visualization of a program, rendered as the student writes it, that tells a cohesive story. Students and teachers spend significant time simulating the behaviour of a program (mentally, or on paper), often erroneously. An automated method to create visual explanations of these programs can significantly ease the mental burden of teachers and students alike when introduced in the right context, e.g., by having the professor and students draw the visualization before transitioning to a <span>computer-generated version.<label for="sorva-thesis" class="margin-toggle"></label></span><input type="checkbox" id="sorva-thesis" class="margin-toggle">
         <span class="marginnote">
           <a href="http://urn.fi/URN:ISBN:978-952-60-4626-6" target="_blank">Juha Sorva. <em>Visual Program Simulation in Introductory Programming Education</em></a> @section 11.2
         </span>
@@ -47,9 +47,9 @@
         </span> visualization of program execution with two parts:</p>
 
         <ul>
-          <li>A <em class="keyword">micro visualization</em> that shows line-by-line details about the program’s execution, including readable stories for arbitrary control structures and summaries of expressions’ side effects.
+          <li>a <em class="keyword">micro visualization</em> that shows line-by-line details about the program’s execution, including readable stories for arbitrary control structures and summaries of expressions’ side effects, and
           </li>
-          <li>A <em class="keyword">macro visualization</em> that serves as an overview of the program’s execution, and can be used as a tool to <em class="keyword">focus</em> on different points in the execution.</li>
+          <li>a <em class="keyword">macro visualization</em> that serves as an overview of the program’s execution, and can be used as a tool to <em class="keyword">focus</em> on different points in the execution.</li>
         </ul>
 
         <p>We have also developed a library that makes it easy to generate these visualizations from the runtime data of any imperative language. We will discuss the details of this library in an upcoming paper.</p>
@@ -116,7 +116,7 @@
         </figure>
 
         <p>
-        The micro visualization displays loops using a columnar format. Each column represents an iteration of the loop. The programmer can read through a row to see how a line&rsquo;s effects change over time, or a column to see what happened in a particular iteration.
+        The micro visualization displays loops using a columnar format, where each column represents an iteration of the loop. The programmer can read through a row to see all of the effects from a line of code over time, or read through a column to see what happened in a particular iteration.
         </p>
 
         <figure id="video4" class="fullwidth">
@@ -148,13 +148,13 @@
         </figure>
 
         <!-- <figure id="env2">
-          <label for="mn-hover" class="margin-toggle"></label><input type="checkbox" id="mn-hover" class="margin-toggle"><span class="marginnote">hovering over message sends (e.g. the loop, blue dots) highlights the code that produced them and shows their return value</span>
+          <label for="mn-hover" class="margin-toggle"></label><input type="checkbox" id="mn-hover" class="margin-toggle"><span class="marginnote">hovering over message sends (e.g., the loop, blue dots) highlights the code that produced them and shows their return value</span>
           <div id="microVizContainer2"></div>
           <div id="errorDiv2"></div>
         </figure>  -->
 
         <p>
-        In addition to built-in loop constructs, programmers often rely on user-defined control structures, e.g. <code>map</code>, <code>filter</code>, and
+        In addition to built-in loop constructs, programmers often rely on user-defined control structures, e.g., <code>map</code>, <code>filter</code>, and
         <code>reduce</code>.  While these are not loops in the strict sense of the word, they are “loop-like” so the programmer would benefit from visualizing them as such. Seymour automatically detects loopy behavior and provides a columnar visualization for it, as shown below. In fact, all built-in control structures in Seymour's language are simply message sends/method calls (as in Smalltalk) and are rendered in a columnar manner using the same loop mechanism&mdash;i.e., there is no special handling for built-in control structures.
         </p>
 
@@ -168,7 +168,7 @@
         </p>
 
         <p>
-        While creating the micro visualization, we sought to mitigate users’ mental simulation of the program. Seymour shows every state change, without interaction, so that the user does not have to simulate the program and interactively view parts of the state.
+        While creating the micro visualization, we sought to mitigate users’ mental simulation of the program. Seymour shows every state change, without requiring interaction, so that the user does not have to simulate the program and interactively view parts of the state.
         </p>
 
         <p>
@@ -192,7 +192,7 @@
         </figure>
 
         <p>
-        A call's summary elides most of its implementation details in order to give the user &lsquo;just enough&rsquo; information to continue reading the story of the execution. If the user is interested in these details, Seymour can show the story of any call. In fact, the program is treated as a call and its implementation details are displayed like those of any other call, such as the call to <code>add5()</code> below.
+        A call's summary elides most of its implementation details in order to give the user &lsquo;just enough&rsquo; information to continue reading the story of the execution. If the user is interested in these details, Seymour can show the story of any call. In fact, the whole program is treated as a call and its implementation details are displayed like those of any other call, such as the call to <code>add5()</code> below.
         </p>
 
         <figure id="adder">
