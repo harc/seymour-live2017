@@ -200,7 +200,7 @@
         </figure>
 
         <p>
-        When visualizing a call, we also show all lexical scopes that it has access to. All the information needed to calculate the call's result is on screen, and the method only has access to the values it can &lsquo;see&rsquo;. In the program above, which visualizes the call to  <code>add5()</code> on line 8, Seymour shows the value of <code>this</code> that <code>add5()</code> has access to, explaining why it returns <code>11</code>.
+        When visualizing a call, we also show all lexical scopes that the callee (i.e., a method or a block) has access to. All the information needed to calculate the call's result is on screen, and the method only has access to the values it can &lsquo;see&rsquo;. In the program above, which visualizes the call to  <code>add5()</code> on line 8, Seymour shows the value of <code>this</code> that <code>add5()</code> has access to, explaining why it returns <code>11</code>.
         </p>
 
         <h3>The Macro Visualization</h3>
@@ -251,10 +251,10 @@
         </figure>
 
         <p>
-        The visualization is also a user interface for navigating between calls in the micro visualization. When the user clicks on a node in the macro visualization, Seymour focuses the micro visualization on the call associated with that node. This makes it easy for the user to switch between contexts, drill down, and gather detailed information about the program. The currently focused call is colored <span id="macroFocusHighlight">dark blue</span> in the macro visualization along with <span>all calls whose local variables the current call can access<label for="toplevel-highlight" class="margin-toggle"></label></span><input type="checkbox" id="toplevel-highlight" class="margin-toggle">
+        The visualization is also a user interface for navigating between calls in the micro visualization. When the user clicks on a node in the macro visualization, Seymour focuses the micro visualization on the call associated with that node. This makes it easy for the user to switch between contexts, drill down, and gather detailed information about the program. The currently focused call is colored <span id="macroFocusHighlight">dark blue</span> in the macro visualization, along with <span>all activations whose local variables the callee can access.<label for="toplevel-highlight" class="margin-toggle"></label></span><input type="checkbox" id="toplevel-highlight" class="margin-toggle">
         <span class="marginnote">
           Since every call can access the program's global state, the root node of the macro visualization is always highlighted
-        </span>.
+        </span>
         </p>
 
         <figure id="fib_focus" class="fullwidth">
