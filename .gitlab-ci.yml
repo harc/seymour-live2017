@@ -4,6 +4,8 @@ pages:
   - mkdir .public
   - cp -r * .public
   - mv .public public
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
   artifacts:
     paths:
     - public
