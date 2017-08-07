@@ -1,3 +1,3 @@
 [submodule "seymour-interpreter"]
 	path = seymour-interpreter
-	url = ../seymour-interpreter.git
+	url = https://github.com/harc/seymour.git
