@@ -140,8 +140,8 @@ div[id^=macroVizScroller] {
 }
 
 #references li {
-  padding-left: 2em;
-  text-indent: -2em;
+  padding-left: 2rem;
+  text-indent: -1rem;
 }
 
 #references ol {
