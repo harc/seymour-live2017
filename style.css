@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i|Vollkorn:400,400i,700,700i|Spectral:400,400i,500,500i,600,600i,700,700i|Gentium+Book+Basic:400,400i,700,700i|Merriweather:400,400i,700,700i&amp;subset=latin-ext');
 @import url("fonts/Charter/stylesheet.css");
+@import url("fonts/equity-b.css");
 
 html { font-size: 13px; }
 
 body {
-   font-family: 'Charter', serif; 
+  font-family: 'equity-text', 'Charter', serif; 
   background-color: hsl(60,35%,99%);
   font-kerning: normal;
   text-rendering: optimizeLegibility;
@@ -56,6 +57,10 @@ a:link {
   line-height: 1.7rem;
 }
 
+p, ul, ol {
+  font-size: 1.5rem;
+}
+
 h1, h2, h3, h4, h5,
 p.subtitle {
   font-family: 'Fira Sans', sans-serif;
@@ -78,7 +83,7 @@ h2, h3 {
 code, pre.code {
   font-family: "Fira Mono", Consolas, Monaco, Courier, monospace;
   font-feature-settings: "liga" 0;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 
 .sidenote-number:after, .sidenote:before {
