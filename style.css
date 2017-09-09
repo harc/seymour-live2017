@@ -53,12 +53,13 @@ a:link {
 
 #abstract > blockquote {
   width: 45%;
-  font-size: 1.2rem;
-  line-height: 1.7rem;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
 }
 
 p, ul, ol {
   font-size: 1.5rem;
+  line-height: 2.1rem;
 }
 
 h1, h2, h3, h4, h5,
