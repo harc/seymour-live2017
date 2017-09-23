@@ -99,23 +99,40 @@ code, pre.code {
 
 /* seymour env styling */
 
-figure[id^="env"] {
-  border: 1px solid hsl(0, 0%, 80%);
-  border-radius: 3px;
+figure .controls {
+  /* text-align: right; */
 }
 
-figure[id^="env"] .CodeMirror {
+figure .controls .interactive {
+  display: none;
+}
+
+figure.fullwidth > div.interactive,
+figure.fullwidth > div.controls,
+figure.fullwidth div.contents > div.interactive,
+figure.fullwidth div.contents > div.controls {
+  width: 960px;
+}
+
+div.interactive {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 3px;
+  display: none;
+}
+
+div.interactive .CodeMirror {
   font-family: inherit;
   min-width: 50%;
 }
 
-div[id^="microVizContainer"] {
+div.interactive > .microVizContainer {
   font-family: "Fira Mono";
+  font-size: 15px;
   font-feature-settings: "liga" 0;
   padding: 0px;
 }
 
-div[id^="errorDiv"] {
+div.interactive > .errorDiv {
   font-family: "Fira Sans";
   color: hsl(0, 50%, 70%);
   padding: 5px;
@@ -124,7 +141,7 @@ div[id^="errorDiv"] {
   cursor: row-resize;
 }
 
-div[id^="errorDiv"]:empty {
+div.interactive > .errorDiv:empty {
   padding: 0px;
   border: 0px;
 }
@@ -137,7 +154,7 @@ div[id^="errorDiv"]:empty {
   border: 1px solid #ddd;
 }
 
-div[id^=macroVizScroller] {
+div.interactive .macroVizScroller {
   overflow-x: auto;
   overflow-y: auto;
   width: 100%;
@@ -281,7 +298,7 @@ label.margin-toggle:not(.sidenote-number)::after {
   background-color: HSL(191, 100%, 81%);
 }
 
-.video-scroll-wrapper {
+.scroll-wrapper {
   position: relative;
 }
 
