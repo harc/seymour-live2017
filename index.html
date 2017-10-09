@@ -16,6 +16,17 @@
     <link rel="shortcut icon" href="favicon/favicon.ico">
     <meta name="msapplication-config" content="favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107764499-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-107764499-1');
+    </script>
+
   </head>
 
   <body>
@@ -26,7 +37,7 @@
 
       <section>
       <p>
-        <b>For our reviewers: By the time we submit final version of this paper, each video will include an ‘interact’ button, which will allow the reader to edit the program in the video. Also, this web essay has only been tested on the latest version of Google Chrome, and has not been optimized for mobile phones.</b>
+        <b>This web essay has only been tested on the latest version of Google Chrome, and has not been optimized for mobile phones.<span id="non-chrome-disclaimer">This essay is also interactive. To interactively edit the examples shown in each figure, please visit this page with Google Chrome version 61 or greater.</span></b>
       </p>
       </section>
 
@@ -93,7 +104,10 @@
 
         <h3>The Micro Visualization</h3>
         <p>
-        The micro visualization displays details about the execution of the code. These details are shown next to the lines of code that produced them, and they are updated as the programmer makes changes to the code.
+        The micro visualization displays details about the execution of the code. These details are shown next to the lines of code that produced them, and they are updated as the programmer makes <span>changes to the code.<label for="interact-1" class="margin-toggle no-star"></label></span><input type="checkbox" id="interact-1" class="margin-toggle">
+        <span class="marginnote interact" interactiveId="video1">
+          Try changing the &lsquo;0&rsquo; to a &lsquo;2&rsquo; below
+        </span>
         </p>
 
         <figure id="video1" class="fullwidth">
@@ -114,14 +128,17 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('video1')">reset</a>
-              <a href="javascript:swapInteractive('video1')">back</a>
+              <a href="javascript:swapInteractive('video1')">back to video</a>
             </span>
           </div>
         </figure>
 
 
         <p>
-        Each subexpression in the program is rendered as a blue dot. To see the value of a subexpression, the programmer simply hovers over its corresponding blue dot.
+        Each subexpression in the program is rendered as a blue dot. To see the value of a subexpression, the programmer simply hovers over its <span>corresponding blue dot.<label for="interact-2" class="margin-toggle no-star"></label></span><input type="checkbox" id="interact-2" class="margin-toggle">
+        <span class="marginnote interact" interactiveId="video2">
+          Try hovering over the <span style="color: hsl(219, 79%, 66%)">▪</span>&rsquo;s next to <code>avg</code>
+        </span>
         </p>
 
         <figure id="video2" class="fullwidth">
@@ -142,7 +159,7 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('video2')">reset</a>
-              <a href="javascript:swapInteractive('video2')">back</a>
+              <a href="javascript:swapInteractive('video2')">back to video</a>
             </span>
           </div>
         </figure>
@@ -169,7 +186,7 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('video4')">reset</a>
-              <a href="javascript:swapInteractive('video4')">back</a>
+              <a href="javascript:swapInteractive('video4')">back to video</a>
             </span>
           </div>
         </figure>
@@ -179,7 +196,10 @@
         <input type="checkbox" id="mn-learnable" class="margin-toggle"><span class="marginnote">
           <a href="http://worrydream.com/LearnableProgramming/">Bret Victor. &ldquo;Learnable Programming&rdquo;</a>
         </span>
-        of the program over time.
+        of the <span>program over time.<label for="interact-3" class="margin-toggle no-star"></label></span><input type="checkbox" id="interact-3" class="margin-toggle">
+        <span class="marginnote interact" interactiveId="video5">
+          Try scrolling the micro visualization to the right
+        </span>
         </p>
 
         <figure id="video5" class="fullwidth">
@@ -200,7 +220,7 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('video5')">reset</a>
-              <a href="javascript:swapInteractive('video5')">back</a>
+              <a href="javascript:swapInteractive('video5')">back to video</a>
             </span>
           </div>
         </figure>
@@ -229,7 +249,7 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('reduce')">reset</a>
-              <a href="javascript:swapInteractive('reduce')">back</a>
+              <a href="javascript:swapInteractive('reduce')">back to video</a>
             </span>
           </div>
         </figure>
@@ -243,7 +263,10 @@
         </p>
 
         <p>
-        A method call, in addition to producing a result, can modify program state. If its side effects are not shown, the user must fall back to mentally simulating the program. Consider the program below:
+        A method call, in addition to producing a result, can modify program state. If its side effects are not shown, the user must fall back to mentally simulating the program. Consider the <span>program below:<label for="interact-4" class="margin-toggle no-star"></label></span><input type="checkbox" id="interact-4" class="margin-toggle">
+        <span class="marginnote interact" interactiveId="summary">
+          Cmd+click on <code style="color: hsla(0, 0%, 18%, 0.5); background-color: rgba(100, 149, 237, 0.05); box-shadow: 1px 1px 2px #ddd;">(a = 7)</code> to see the details of <code>f()</code>
+        </span>
         </p>
 
         <figure id="summary">
@@ -258,7 +281,7 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('summary')">reset</a>
-              <a href="javascript:swapInteractive('summary')">back</a>
+              <a href="javascript:swapInteractive('summary')">back to video</a>
             </span>
           </div>
         </figure>
@@ -268,7 +291,10 @@
         </p>
 
         <p>
-        For each call, all side effects that are relevant to the execution are summarized. The micro visualization shows the last value of variables that are written multiple times, and hides the values of local variables that do not affect computation past the duration of the call. In the example below, we only show <code>a</code>&rsquo;s final value, and <code>b = 7</code> does not appear in <code>f()</code>&rsquo;s summary.
+        For each call, all side effects that are relevant to the execution are summarized. The micro visualization shows the last value of variables that are written multiple times, and hides the values of local variables that do not affect computation past the duration of the call. In the example below, we only show <code>a</code>&rsquo;s final value, and <code>b = 7</code> does not appear in <code>f()</code>&rsquo;s <span>summary.<label for="interact-5" class="margin-toggle no-star"></label></span><input type="checkbox" id="interact-5" class="margin-toggle">
+        <span class="marginnote interact" interactiveId="summary-2">
+          Cmd+click on <code style="color: hsla(0, 0%, 18%, 0.5); background-color: rgba(100, 149, 237, 0.05); box-shadow: 1px 1px 2px #ddd;">(a = 6)</code> to see the details of <code>f()</code>
+        </span>
         </p>
 
         <figure id="summary-2">
@@ -283,13 +309,16 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('summary-2')">reset</a>
-              <a href="javascript:swapInteractive('summary-2')">back</a>
+              <a href="javascript:swapInteractive('summary-2')">back to video</a>
             </span>
           </div>
         </figure>
 
         <p>
-        A call&rsquo;s summary elides most of its implementation details in order to give the user &lsquo;just enough&rsquo; information to continue reading the story of the execution. If the user is interested in these details, Seymour can show the story of any call. In fact, the whole program is treated as a call and its implementation details are displayed like those of any other call, such as the call to <code>add5()</code> below.
+        A call&rsquo;s summary elides most of its implementation details in order to give the user &lsquo;just enough&rsquo; information to continue reading the story of the execution. If the user is interested in these details, Seymour can show the story of any call. In fact, the whole program is treated as a call and its implementation details are displayed like those of any other call, such as the call to <span><code>add5()</code> below<label for="interact-5" class="margin-toggle"></label></span><input type="checkbox" id="interact-5" class="margin-toggle">
+        <span class="marginnote interact" interactiveId="adder">
+          Cmd+click on the <span style="color: hsl(219, 79%, 66%)">▪</span> next to <code>ans</code> to see the details of the block call
+        </span>.
         </p>
 
         <figure id="adder">
@@ -304,7 +333,7 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('adder')">reset</a>
-              <a href="javascript:swapInteractive('adder')">back</a>
+              <a href="javascript:swapInteractive('adder')">back to video</a>
             </span>
           </div>
         </figure>
@@ -333,7 +362,7 @@
           <img class="block light-bg-protect figure" src="media/fib_macro_viz.png"></img>
           <div class="interactive">
             <div class="microVizContainer"></div>
-            <div class="errorDiv"></div>
+            <div class="errorDiv divider"></div>
             <div class="macroVizScroller">
               <div class="macroVizContainer"></div>
             </div>
@@ -344,7 +373,7 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('screenshot_fib_1')">reset</a>
-              <a href="javascript:swapInteractive('screenshot_fib_1')">back</a>
+              <a href="javascript:swapInteractive('screenshot_fib_1')">back to video</a>
             </span>
           </div>
         </figure>
@@ -376,7 +405,7 @@
           </div>
           <div class="interactive">
             <div class="microVizContainer"></div>
-            <div class="errorDiv"></div>
+            <div class="errorDiv divider"></div>
             <div class="macroVizScroller">
               <div class="macroVizContainer"></div>
             </div>
@@ -387,7 +416,7 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('fib_highlighting')">reset</a>
-              <a href="javascript:swapInteractive('fib_highlighting')">back</a>
+              <a href="javascript:swapInteractive('fib_highlighting')">back to video</a>
             </span>
           </div>
         </figure>
@@ -409,7 +438,7 @@
           </div>
           <div class="interactive">
             <div class="microVizContainer"></div>
-            <div class="errorDiv"></div>
+            <div class="errorDiv divider"></div>
             <div class="macroVizScroller">
               <div class="macroVizContainer"></div>
             </div>
@@ -420,7 +449,7 @@
             </span>
             <span class="interactive">
               <a href="javascript:reset('fib_focus')">reset</a>
-              <a href="javascript:swapInteractive('fib_focus')">back</a>
+              <a href="javascript:swapInteractive('fib_focus')">back to video</a>
             </span>
           </div>
         </figure>
@@ -452,7 +481,7 @@
             </div>
             <div class="interactive">
               <div class="microVizContainer"></div>
-              <div class="errorDiv"></div>
+              <div class="errorDiv divider"></div>
               <div class="macroVizScroller">
                 <div class="macroVizContainer"></div>
               </div>
@@ -463,7 +492,7 @@
               </span>
               <span class="interactive">
                 <a href="javascript:reset('video_fib')">reset</a>
-                <a href="javascript:swapInteractive('video_fib')">back</a>
+                <a href="javascript:swapInteractive('video_fib')">back to video</a>
               </span>
             </div>
           </div>
@@ -517,7 +546,7 @@
             </div>
             <div class="interactive">
               <div class="microVizContainer"></div>
-              <div class="errorDiv"></div>
+              <div class="errorDiv divider"></div>
               <div class="macroVizScroller">
                 <div class="macroVizContainer"></div>
               </div>
@@ -528,7 +557,7 @@
               </span>
               <span class="interactive">
                 <a href="javascript:reset('video_arr_toString')">reset</a>
-                <a href="javascript:swapInteractive('video_arr_toString')">back</a>
+                <a href="javascript:swapInteractive('video_arr_toString')">back to video</a>
               </span>
             </div>
           </div>
@@ -646,7 +675,7 @@
           <img class="block light-bg-protect" src="media/1to10.png"></img>
         </figure>
 
-        <p>We have begun experimenting with <em class="keyword">modular side effects</em>, a language extension that allows an object to specify how its side effects should be presented to the user. As illustrated above, the micro visualization currently shows all side effects when working with an object. For example, when inserting an element into a red-black tree, the user sees all the rotations the tree conducts to maintain its invariant. With modular side effects, an object can choose how to present its internal state. A red-black tree might present itself as a set, only showing that an element has been inserted, sparing the user an excess of irrelevant details.</p>
+        <p>We have begun experimenting with <em class="keyword">modular side effects</em>, a language feature that allows an object to specify how its side effects should be presented to the user. As illustrated above, the micro visualization currently shows all side effects when working with an object. For example, when inserting an element into a red-black tree, the user sees all the rotations the tree conducts to maintain its invariant. With modular side effects, an object can choose how to present its internal state. A red-black tree might present itself as a set, only showing that an element has been inserted, sparing the user an excess of irrelevant details.</p>
 
         <p>Together with our colleague Jonathan Edwards, we have also started exploring <em class="keyword">interventions</em>&mdash;a mechanism that lets programmers temporarily modify program execution to aid development. In addition to displaying the effects of a call, call summaries can be used to change the program’s execution. If a method call produces an incorrect answer, the user can <em class="keyword">intervene</em> and assert that the method call return the correct value. This assertion can then become a unit test, and its value can be substituted for the call’s return value, allowing the user to make progress on other parts of the program and address the broken method at a later time.</p>
       </section>
@@ -665,7 +694,7 @@
       <section>
         <h2>Acknowledgements</h2>
 
-        <p>We would like to thank Patrick Dubroy, Aran Lunzer, Sean McDirmid, Todd Millstein, Yoshiki Ohshima, and Marko Röder for their valuable feedback on this paper.</p>
+        <p>We would like to thank <a href="https://dubroy.com" target="_blank">Patrick Dubroy</a>, <a href="https://bit.ly/aranlunzer" target="_blank">Aran Lunzer</a>, <a href="https://harc.ycr.org/member/sean_mcdirmid/" target="_blank">Sean McDirmid</a>, <a href="http://web.cs.ucla.edu/~todd/" target="_blank">Todd Millstein</a>, <a href="https://harc.ycr.org/member/yoshiki_ohshima/" target="_blank">Yoshiki Ohshima</a>, and Marko Röder for their valuable feedback on this paper. Also, thanks to <a href="http://worrydream.com/" target="_blank">Bret Victor</a>, <a href="http://tobyschachman.com/" target="_blank">Toby Schachman</a>, <a href="https://tenedor.github.io/me/" target="_blank">Daniel Windham</a>, <a href="http://chaim.io/" target="_blank">Chaim Gingold</a>, <a href="http://alarmingdevelopment.org/" target="_blank">Jonathan Edwards</a>, and the rest of the gang at <a href="https://harc.ycr.org/" target="_blank">HARC</a> for many invaluable discussions that helped us formulate these ideas.</p>
       </section>
       <section id="references">
         <h2>References</h2>
@@ -788,6 +817,7 @@
     <script src="seymour/highlighting.js"></script>
     <script src="seymour/pathmatcher.js"></script>
     <script src="seymour/seymour.js"></script>
+    <script src="third_party/ua-parser-js/dist/ua-parser.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

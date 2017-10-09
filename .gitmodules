@@ -4,3 +4,6 @@
 [submodule "seymour"]
 	path = seymour
 	url = git@github.com:harc/seymour.git
+[submodule "third_party/ua-parser-js"]
+	path = third_party/ua-parser-js
+	url = git@github.com:faisalman/ua-parser-js.git

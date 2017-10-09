@@ -101,6 +101,7 @@ code, pre.code {
 
 figure .controls {
   /* text-align: right; */
+  background-color: hsl(60, 35%, 99%); /*Same as body bg*/
 }
 
 figure .controls .interactive {
@@ -118,6 +119,11 @@ div.interactive {
   border: 1px solid hsl(0, 0%, 80%);
   border-radius: 3px;
   display: none;
+  background-color: hsl(60, 35%, 99%); /*Same as body bg*/
+}
+
+div.interactive > * {
+  z-index: 100;
 }
 
 div.interactive .CodeMirror {
@@ -137,6 +143,7 @@ div.interactive > .errorDiv {
   color: hsl(0, 50%, 70%);
   padding: 5px;
   border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
   background: hsl(0, 0%, 95%);
   cursor: row-resize;
 }
@@ -144,6 +151,12 @@ div.interactive > .errorDiv {
 div.interactive > .errorDiv:empty {
   padding: 0px;
   border: 0px;
+}
+
+div.interactive > .errorDiv.divider:empty {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 
 #env6 .CodeMirror {

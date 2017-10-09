@@ -1,6 +1,15 @@
 const $$ = (query) => Array.prototype.slice.call(document.querySelectorAll(query));
 const q = (query) => document.querySelector(query);
 
+const browser = UAParser().browser;
+const enableInteractivity = browser.name === 'Chrome' && parseInt(browser.major) >= 61;
+
+if (enableInteractivity) {
+  q('#non-chrome-disclaimer').style.display = 'none';
+} else {
+  $$('.controls').forEach(controls => controls.style.display = 'none');
+}
+
 // INTERACTIVITY
 
 const idToCode = {
@@ -132,6 +141,13 @@ var b = [false, true].toString2();\n`,
 
 const idToSeymour = {};
 const idToInitialHTML = {};
+const idToSidenote = {};
+
+Object.keys(idToCode)
+  .forEach(id => {
+    idToSidenote[id] = $$(`.marginnote.interact[interactiveId="${id}"]`);
+    idToSidenote[id].forEach(elt => elt.style.display = 'none');
+  });
 
 function swapInteractive(id) {
   let container = q(`figure#${id}`);
@@ -146,6 +162,7 @@ function swapInteractive(id) {
   const figureControls = container.querySelector('.controls .figure');
 
   if (!isInteractive) {
+    Object.keys(idToSeymour).forEach(id => swapInteractive(id));
     const microVizContainer =  interactiveContainer.querySelector('.microVizContainer');
     const errorDiv = interactiveContainer.querySelector('.errorDiv');
     let macroVizContainer = interactiveContainer.querySelector('.macroVizContainer');
@@ -160,8 +177,13 @@ function swapInteractive(id) {
       errorDiv.innerHTML = '';
       errorDiv.innerText = message;
     }
+    function clearError() {
+      errorDiv.innerHTML = '';
+    }
+    S.addListener('codeChanged', code => clearError());
     S.addListener('error', e => displayError(e.toString()));
-
+  } else {
+    delete idToSeymour[id];
   }
 
   if (isInteractive) {
@@ -173,6 +195,8 @@ function swapInteractive(id) {
 
     container.removeAttribute('isInteractive');
     interactiveContainer.innerHTML = idToInitialHTML[id];
+
+    idToSidenote[id].forEach(elt => elt.style.display = 'none');
   } else {
     interactiveContainer.style.display = 'block';
     interactiveControls.style.display = 'inline';
@@ -181,6 +205,8 @@ function swapInteractive(id) {
     figureControls.style.display = 'none';
 
     container.setAttribute('isInteractive', true);
+
+    idToSidenote[id].forEach(elt => elt.style.display = 'block');
   }
 }
 
