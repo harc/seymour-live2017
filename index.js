@@ -1,121 +1,222 @@
-// const S1 = new Seymour(microVizContainer1, null, true, true);
+const $$ = (query) => Array.prototype.slice.call(document.querySelectorAll(query));
+const q = (query) => document.querySelector(query);
 
-// S1.editor.setValue(`var x = 2;
-// var y = 4;
+const browser = UAParser().browser;
+const enableInteractivity = browser.name === 'Chrome' && parseInt(browser.major) >= 61;
 
-// x = 3;
-// y = 1;
-// `);
+if (enableInteractivity) {
+  q('#non-chrome-disclaimer').style.display = 'none';
+} else {
+  $$('.controls').forEach(controls => controls.style.display = 'none');
+}
 
-// S1.addListener('codeChanged', _ => clearError(1));
-// S1.addListener('error', e => displayError(1, e.toString()));
+// INTERACTIVITY
+
+const idToCode = {
+  video1: `var sum = 0;\n\n`,
+  video2: `var low = 0;
+var high = 5;
+
+var avg = (low + high)/2;\n\n`,
+  video4: `var sum = 0;
+
+for 1 to: 5 do: {x|
+  sum = sum + x;
+};\n`,
+  video5: `var sum = 0;
+
+for 1 to: 5 do: {x|
+  if x % 2 != 0 then: {
+    sum = sum + x;
+  };
+};\n`,
+  reduce: `def Array.reduce2(fn, acc, idx) {
+  var x = this.get(idx);
+  acc = fn(acc, x);
+  if idx == this.size() then: {
+    return acc;
+  } else: {
+    return this.reduce2(fn, acc, idx + 1);
+  };
+}
+
+var arr = [1, 2, 3, 4];
+var sum = arr.reduce2({
+  a,
+  b |
+  a + b
+}, 0, 1);\n`,
+  summary: `var a = 5;
+var f = {
+  a = a + 1;
+  5
+};
+
+a = a + 1;
+var b = f();
+a = a - 1;\n`,
+  'summary-2': `var a = 5;
+var f = {
+  a = 5;
+  a = 6;
+  var b = 7;
+};
+
+f();\n`,
+  adder: `def Number.adder() {
+  return {that |
+    this + that
+  };
+}
+
+var add5 = 5.adder();
+var ans = add5(6);\n`,
+  screenshot_fib_1: `def Number.fib() {
+  if this < 2 then: {
+    return this;
+  } else: {
+    var fa = (this-1).fib();
+    var fb = (this-2).fib();
+    return fa + fb;
+  };
+}
+
+for 1 to: 7 do: {x|
+  var fx = x.fib();
+};\n`,
+  fib_highlighting: `def Number.fibonacci() {
+  if this < 2 then: {
+    return this;
+  } else: {
+    var fa = (this-1).fibonacci();
+    var fb = (this-2).fibonacci();
+    return fa + fb;
+  };
+}
+
+for 1 to: 7 do: {x|
+  var fx = x.fibonacci();
+};\n`,
+  fib_focus: `def Number.fibonacci() {
+  if this < 2 then: {
+    return this;
+  } else: {
+    var fa = (this-1).fibonacci();
+    var fb = (this-2).fibonacci();
+    return fa + fb;
+  };
+}
+
+for 1 to: 7 do: {x|
+  var fx = x.fibonacci();
+};\n`,
+  video_fib: `def Number.fibonacci() {
+  if this < 2 then: {
+    return this;
+  } else: {
+    var fa = (this-1).fibonacci();
+    var fb = (this-2).fibonacci();
+    return fa + fb;
+  };
+}
+
+for 1 to: 7 do: {x|
+  var fx = x.fibonacci();
+};\n`,
+  video_arr_toString: `def Array.toString2() {
+  var ans = "";
+  forEach this do: {x, idx|
+    var sx = x.toString();
+    if idx != 1 then: {
+      ans = ans + ",";
+    };
+    ans = ans + sx;
+  };
+  return "[" + ans + "]";
+}
+
+var a = [6, 1, 7].toString2();
+var b = [false, true].toString2();\n`,
+};
+
+const idToSeymour = {};
+const idToInitialHTML = {};
+const idToSidenote = {};
+
+Object.keys(idToCode)
+  .forEach(id => {
+    idToSidenote[id] = $$(`.marginnote.interact[interactiveId="${id}"]`);
+    idToSidenote[id].forEach(elt => elt.style.display = 'none');
+  });
+
+function swapInteractive(id) {
+  let container = q(`figure#${id}`);
+  if (container.classList.contains('scroll')) {
+    container = container.querySelector('.contents');
+  }
+  const isInteractive = container.hasAttribute('isInteractive');
+
+  const interactiveContainer = container.querySelector('.interactive');
+  const figure = container.querySelector('.figure');
+  const interactiveControls = container.querySelector('.controls .interactive');
+  const figureControls = container.querySelector('.controls .figure');
+
+  if (!isInteractive) {
+    Object.keys(idToSeymour).forEach(id => swapInteractive(id));
+    const microVizContainer =  interactiveContainer.querySelector('.microVizContainer');
+    const errorDiv = interactiveContainer.querySelector('.errorDiv');
+    let macroVizContainer = interactiveContainer.querySelector('.macroVizContainer');
+
+    const code = idToCode[id];
+    idToInitialHTML[id] = interactiveContainer.innerHTML;
+    const S = new Seymour(microVizContainer, macroVizContainer, true, true);
+    S.editor.setValue(code);
+    idToSeymour[id] = S;
+
+    function displayError(message) {
+      errorDiv.innerHTML = '';
+      errorDiv.innerText = message;
+    }
+    function clearError() {
+      errorDiv.innerHTML = '';
+    }
+    S.addListener('codeChanged', code => clearError());
+    S.addListener('error', e => displayError(e.toString()));
+  } else {
+    delete idToSeymour[id];
+  }
+
+  if (isInteractive) {
+    figure.style.display = 'block';
+    figureControls.style.display = 'inline';
+
+    interactiveContainer.style.display = 'none';
+    interactiveControls.style.display = 'none';
+
+    container.removeAttribute('isInteractive');
+    interactiveContainer.innerHTML = idToInitialHTML[id];
+
+    idToSidenote[id].forEach(elt => elt.style.display = 'none');
+  } else {
+    interactiveContainer.style.display = 'block';
+    interactiveControls.style.display = 'inline';
+
+    figure.style.display = 'none';
+    figureControls.style.display = 'none';
+
+    container.setAttribute('isInteractive', true);
+
+    idToSidenote[id].forEach(elt => elt.style.display = 'block');
+  }
+}
+
+// TODO: make reset a hard reset that interrupts things/deletes seymour?
+function reset(id) {
+  idToSeymour[id].editor.setValue(idToCode[id]);
+}
 
 
-// const S2 = new Seymour(microVizContainer2, null, true, true);
-
-//   S2.editor.setValue(`var sum = 0;
-// for 1 to: 3 do: {x |
-//   sum = sum + x;
-// };
-// `);
-
-// S2.addListener('codeChanged', _ => clearError(2));
-// S2.addListener('error', e => displayError(2, e.toString()));
-
-
-// const S3 = new Seymour(microVizContainer3, null, true, true);
-
-//   S3.editor.setValue(`for 1 to: 15 do: {x |
-//   var ans = "";
-//   if x % 3 == 0 then: {
-//     ans = ans + "fizz";
-//   };
-//   if x % 5 == 0 then: {
-//     ans = ans + "buzz";
-//   };
-
-//   if ans == "" then: {
-//     ans = x.toString();
-//   };
-
-//   ans.show();
-// };
-// `);
-
-// S3.addListener('codeChanged', _ => clearError(3));
-// S3.addListener('error', e => displayError(3, e.toString()));
-
-
-// const S4 = new Seymour(microVizContainer4, null, true, true);
-
-//   S4.editor.setValue(`var b = 0;
-// def Number.f() {
-//   var c = 2;
-//   b = 1;
-//   b = 10;
-// }
-
-// 5.f();
-// `);
-
-// S4.addListener('codeChanged', _ => clearError(4));
-// S4.addListener('error', e => displayError(4, e.toString()));
-
-
-// const S5 = new Seymour(microVizContainer5, null, true, true);
-
-//   S5.editor.setValue(`def Number.add() {
-//   return {y |
-//     y + this
-//   };
-// }
-
-// var add5 = 5.add();
-// var ans = add5(6);
-// `);
-
-// S5.addListener('codeChanged', _ => clearError(5));
-// S5.addListener('error', e => displayError(5, e.toString()));
-
-// let setFocus = true;
-// S5.addListener('done', (_, __) => {
-//   if (setFocus) {
-//     const programEvent = S5.interpreter.global.env.programOrSendEvent;
-//     const theEvent = programEvent.children[2];
-//     S5.highlighting.focusLexicalStack(theEvent);
-//     setFocus = false;
-//   }
-// });
-
-
-// const S6 = new Seymour(microVizContainer6, macroVizContainer6, true, true);
-
-//   S6.editor.setValue(`def Number.fact() {
-//   if this == 0 then: {
-//     return 1;
-//   } else: {
-//     return this * (this-1).fact();
-//   };
-// }
-
-// for 1 to: 10 do: {x |
-//   x.fact();
-// };
-// `);
-
-// S6.addListener('codeChanged', _ => clearError(6));
-// S6.addListener('error', e => displayError(6, e.toString()));
-
-// function clearError(n) {
-//   const errorDiv = document.getElementById('errorDiv' + n);
-//   errorDiv.innerHTML = '';
-// }
-
-// function displayError(n, message) {
-//   const errorDiv = document.getElementById('errorDiv' + n);
-//   errorDiv.innerHTML = '';
-//   errorDiv.innerText = message;
-// }
+// TIMESTAMPS
 
 let currentEndTime = null;
 let seekListeners = [];
@@ -187,15 +288,17 @@ videos.forEach(video => {
   video.addEventListener('click', togglePlaying);
 })
 
+// MAKE EXAMPLES STICK TO THE TOP ON SCROLL
+
 const fibExample = {
-  video: document.querySelector('#video_fib .video-mask'),
-  wrapper: document.querySelector('#video_fib .video-scroll-wrapper'),
+  contents: document.querySelector('#video_fib .contents'),
+  wrapper: document.querySelector('#video_fib .scroll-wrapper'),
   end: document.querySelector('#arr_toString')
 };
 
 const toStringExample = {
-  video: document.querySelector('#video_arr_toString .video-mask'),
-  wrapper: document.querySelector('#video_arr_toString .video-scroll-wrapper'),
+  contents: document.querySelector('#video_arr_toString .contents'),
+  wrapper: document.querySelector('#video_arr_toString .scroll-wrapper'),
   end: document.querySelector('#related-work')
 };
 
@@ -212,14 +315,13 @@ function sticky_relocate(example) {
   let divBottom = $(example.wrapper).outerHeight() + 20;
   let bottom = $(example.end).offset().top - windowTop;
 
-  if (example === fibExample) console.log(bottom, divBottom);
   if (windowTop > divTop && bottom > divBottom) {
-    $(example.video).addClass('stick');
-    $(example.video).css({top: `calc(${Math.floor(windowTop - divTop)}px + 1rem)`});
-    $(example.wrapper).height($(example.video).outerHeight());
+    $(example.contents).addClass('stick');
+    $(example.contents).css({top: `calc(${Math.floor(windowTop - divTop)}px + 1rem)`});
+    $(example.wrapper).height($(example.contents).outerHeight());
   } else if (windowTop < divTop) {
-    $(example.video).removeClass('stick');
-    $(example.video).css({top: 'initial'});
+    $(example.contents).removeClass('stick');
+    $(example.contents).css({top: 'initial'});
     $(example.wrapper).height('initial');
   }
 }

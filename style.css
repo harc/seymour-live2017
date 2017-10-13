@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i|Vollkorn:400,400i,700,700i|Spectral:400,400i,500,500i,600,600i,700,700i|Gentium+Book+Basic:400,400i,700,700i|Merriweather:400,400i,700,700i&amp;subset=latin-ext');
-@import url("fonts/Charter/stylesheet.css");
 @import url("fonts/equity-b.css");
 
 html { font-size: 13px; }
 
 body {
-  font-family: 'equity-text', 'Charter', serif; 
+  font-family: 'equity-text', serif; 
   background-color: hsl(60,35%,99%);
   font-kerning: normal;
   text-rendering: optimizeLegibility;
@@ -88,7 +87,7 @@ code, pre.code {
 }
 
 .sidenote-number:after, .sidenote:before {
-    font-family: 'Charter', serif;
+    font-family: 'equity-text', serif;
 }
 
 @media (max-width: 760px) {
@@ -99,34 +98,64 @@ code, pre.code {
 
 /* seymour env styling */
 
-figure[id^="env"] {
-  border: 1px solid hsl(0, 0%, 80%);
-  border-radius: 3px;
+figure .controls {
+  /* text-align: right; */
+  background-color: hsl(60, 35%, 99%); /*Same as body bg*/
 }
 
-figure[id^="env"] .CodeMirror {
+figure .controls .interactive {
+  display: none;
+}
+
+figure.fullwidth > div.interactive,
+figure.fullwidth > div.controls,
+figure.fullwidth div.contents > div.interactive,
+figure.fullwidth div.contents > div.controls {
+  width: 960px;
+}
+
+div.interactive {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 3px;
+  display: none;
+  background-color: hsl(60, 35%, 99%); /*Same as body bg*/
+}
+
+div.interactive > * {
+  z-index: 100;
+}
+
+div.interactive .CodeMirror {
   font-family: inherit;
   min-width: 50%;
 }
 
-div[id^="microVizContainer"] {
+div.interactive > .microVizContainer {
   font-family: "Fira Mono";
+  font-size: 15px;
   font-feature-settings: "liga" 0;
   padding: 0px;
 }
 
-div[id^="errorDiv"] {
+div.interactive > .errorDiv {
   font-family: "Fira Sans";
   color: hsl(0, 50%, 70%);
   padding: 5px;
   border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
   background: hsl(0, 0%, 95%);
   cursor: row-resize;
 }
 
-div[id^="errorDiv"]:empty {
+div.interactive > .errorDiv:empty {
   padding: 0px;
   border: 0px;
+}
+
+div.interactive > .errorDiv.divider:empty {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 
 #env6 .CodeMirror {
@@ -137,7 +166,7 @@ div[id^="errorDiv"]:empty {
   border: 1px solid #ddd;
 }
 
-div[id^=macroVizScroller] {
+div.interactive .macroVizScroller {
   overflow-x: auto;
   overflow-y: auto;
   width: 100%;
@@ -281,7 +310,7 @@ label.margin-toggle:not(.sidenote-number)::after {
   background-color: HSL(191, 100%, 81%);
 }
 
-.video-scroll-wrapper {
+.scroll-wrapper {
   position: relative;
 }
 
