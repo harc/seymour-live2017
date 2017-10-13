@@ -3,7 +3,7 @@
 	url = https://github.com/harc/seymour.git
 [submodule "seymour"]
 	path = seymour
-	url = git@github.com:harc/seymour.git
+	url = https://github.com/harc/seymour.git
 [submodule "third_party/ua-parser-js"]
 	path = third_party/ua-parser-js
 	url = https://github.com/faisalman/ua-parser-js.git
